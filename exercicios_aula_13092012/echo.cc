@@ -3,8 +3,8 @@
 
 using namespace std;
 
-int main() {
-	ifstream file("caso");
+int main(int argc, char** argv) {
+	ifstream file(argv[1]);
 
 	char line[256];
 	file.getline(line, 256);
