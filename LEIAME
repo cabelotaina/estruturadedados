@@ -1,0 +1,17 @@
+estruturadedados
+================
+
+Trabalhos de estrutura de dados.
+
+* estou tentando fazer o programa que controla a pilha em pilha/principal.cc
+* na pasta switch_map tem um modelo que nao funciona ainda mas em tese ele é bom pq funcionaria com strings
+* fazer a pilha/pilha.cc funcionar
+* nao entendo como funciona a ideia de interface com o c++ cheguei a fazer um pilha/pilha.h
+
+Segundo o que entendo slade do professor que coloquei no projeto temos que:
+
+Implemente todas as operações vistas sobre fila;
+implemente um programa principal que utilize a fila através de um menu com os seguintes itens: enfileirar, desenfileirar, limpar, mostrar fila, sair do programa. Use a estrutura de programação switch do "C++" para isto;
+a fila possuirá tamanho máximo 100, definido como uma constante chamada MAXFILA. Utilize esta constante para a definição da estrutura de dados que será a fila;
+a fila será referenciada por uma variável global;
+para implementar a estrutura de dados defina um tipo elementoDaFila que será char[40] e defina a sua fila como um vetor de 100 elementoDaFila.
