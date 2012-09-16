@@ -1,9 +1,19 @@
+/*
+@author Maurilio Atila;
+@date ...
+*/
+
 #define MAXPILHA  30
 #define	 ERROPILHACHEIA -1
 #define	 ERROPILHAVAZIA -2
 
 
 #include <iostream>
+
+/*
+	Descomente a linha abaixo apenas se souber como implementar uma interface em c++.
+*/
+
 //#include "pilha.h"
 using namespace std;
 

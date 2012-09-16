@@ -5,8 +5,9 @@
 #define ERROPILHACHEIA -1
 #define ERROPILHAVAZIA -2
 
-public:
-	virtual Pilha();
-	virtual ~Pilha();
+class Pilha{
+	Pilha::Pilha();
+	Pilha: ~Pilha();
+}
 
 #endif
