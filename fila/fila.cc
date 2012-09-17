@@ -31,6 +31,7 @@ struct ElementoFila {
 	ERROFILAVAZIA_S é o texto de enviado ao ecra quando a fila esta vazia.
 	
 */
+
 #define MAXFILA 100
 #define ERROFILACHEIA -1
 #define ERROFILAVAZIA -2
@@ -38,6 +39,10 @@ struct ElementoFila {
 #define ERROFILAVAZIA_S cout << "ERRO: Fila vazia ao tentar desenfileirar!" << endl
 
 #include <iostream>
+/*
+	CUIDADO!!! - Descomentar a linha abaixo apenas se você sabe o que esta fazendo!
+*/
+//#include "fila.h"
 
 using namespace std;
 
@@ -71,26 +76,38 @@ class Fila {
 
 private:
 
-	
-
 	struct ElementoFila fila[MAXFILA];
 	int ultimo;
+
+/*
+	inclui() inclui um elemento na ultima posiçao da fila;
+*/ 
 
 	void inclui(struct ElementoFila valor){
 		ultimo = ultimo + 1;
 		fila[ultimo] = valor;
 	}
+/*
+	retira() retira o primeiro elemento da fila elemento da Fila
+*/
+
 	void retira(){
 		for(int i = 0; i <= ultimo; i++){
 			fila[i] = fila[++i]*;
 		}
 		ultimo = ultimo - 1;
 	}
+/*
+	filaCheia() retorna um true se o a fila esta cheia e false caso contrario;
+*/
 	bool filaCheia(){
 		if (ultimo == MAXFILA-1)
 			return true;
 		return false;
 	}
+/*
+	filaVazia() retorna true se a fila esta vazia e false caso contrario;
+*/
 	bool filaVazia(){
 		if (ultimo == -1)
 			return true;
@@ -99,8 +116,16 @@ private:
 
 public:
 
+/* 
+	construtor e destrutor da classe Fila
+*/
 	Fila(){inicializa();}
 	~Fila(){}
+
+/*
+	enfileira(struc ElementoFila valor) insere um ElementoFila na ultima posiçao de 	fila e retorna sua posiçao, caso a fila esteja cheia retorna um erro para o 		processador uma mensagem ao usuario;
+*/
+
 	int enfileira(struct ElementoFila valor){
 		if(filaCheia()){
 			ERROFILACHEIA_S;
@@ -112,20 +137,34 @@ public:
 			return ultimo;
 		}
 	}
+/*
+	desenfileira() remove o primeiro elemento da fila e retorna ele, caso contrario 	se a fila esta vazia retorna um numero de erro ao processador e retorna uma 		mensagem de erro para o usuario. 
+*/
+
 	int desenfileira(){
 		if(filaVazia()){
 			ERROFILAVAZIA_S;
 			return ERROFILAVAZIA;
 		}
 		else{
+			struct ElementoFila valor = fila[0];
 			retira();
 			ultimo -= 1;
-			return ultimo;;
+			return valor;
 		}
 	}
+
+/*
+	inicializa() modifica o valor de ultimo para -1 reinicializando a fila;
+*/
+
 	void inicializa(){
 		ultimo = -1;
 	}
+/*
+	mostra() apresenta todos os campos na saida ao usuario;
+*/
+
 	void mostra(){
 		for(int i = 0; i<=ultimo; i++){
 			cout << fila[i] << endl;
@@ -135,6 +174,10 @@ public:
 
 
 // Abaixo esta o programa principal, ele tem que estar em um arquivo separado?
+
+/*
+	Usei constantes para apresentar mensagens;
+*/
 
 #define EMFILEIRAR cout<<"Emfileirando!"<<endl 
 #define DESEMFILEIRAR cout<<"Desemfileirando!" <<endl 
