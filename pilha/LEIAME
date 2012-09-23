@@ -1,0 +1,13 @@
+
+Arquivos:
+
+LEIAME - este arquivo;
+AFAZER - Tarefas a fazer nesta pasta;
+pilha.h - interface da classe fila
+pilha.cc - classe pilha;
+main.cc - arquivo que executa a fila - para compilar faça - "g++ main.cc -o pilha"
+
+Pastas:
+
+casosDeTeste - casos para teste da ferramenta - use "./pilha arquivoalvo"
+

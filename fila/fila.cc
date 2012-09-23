@@ -1,10 +1,10 @@
 #include "fila.h"
 #include <stdio.h>
-using namespace std;
+//using namespace std;
 
 Fila::Fila(){
 	_ultimo = -1;
-	printf("%s\n","CRIANDO PILHA");
+	printf("%s\n","CRIANDO FILA");
 }
 
 int Fila::inclui(ElementoFila dado){
@@ -56,7 +56,7 @@ void Fila::mostra(){
 	if(cheia()){
 		for(int i = 0 ;i<=_ultimo; i++){
                         printf("%s\n",_fila[i].data);
-         }
+         	}
 	}
 	else{
 		for(int i = 0 ;i<=_ultimo; i++){

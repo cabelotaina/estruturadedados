@@ -1,7 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
-#include "fila.cc"
+#include "pilha.cc"
 #include <string.h>
 
 using namespace std;
@@ -9,8 +9,8 @@ using namespace std;
 int main(int argc, char** argv) {
 	ifstream file(argv[1]);
 	char line[40];
-	Fila f;
-	f.inicializa();
+	Pilha p;
+	p.inicializa();
 	while(!file.eof()) {
 		file.getline(line, 40);
 		stringstream stream(line);
@@ -18,24 +18,26 @@ int main(int argc, char** argv) {
 		
 		stream >> command;
 		if(command == "CRIAR"){
-			f.inicializa();
-			cout << "CRIANDO PILHA" << endl;
+			p.inicializa();
+			//cout << "CRIANDO PILHA" << endl;
 		}
 		if(command == "INSERIR"){
 			int n;
+			int dado;
 			stream >> n;
-			ElementoFila ef;
 			for (int i = 0 ; i < n ; i++) {
 				file.getline(line,40);
-				strcpy(ef.data, line);
-				f.inclui(ef);
+				stringstream stream(line);
+				stream >> dado;
+				p.insere(dado);
 			}
 		}		
 		if(command == "MOSTRAR"){
-			f.mostra();
+			p.mostra();
 		}
 		 if(command == "REMOVER"){
-			if(f.retira()==-2){printf("Fila Vazia.");}
+			//if(p.remove()==-2){printf("Fila Vazia.");}
+			p.remove();
                 }
 	}
 }
