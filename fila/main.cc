@@ -19,7 +19,6 @@ int main(int argc, char** argv) {
 		stream >> command;
 		if(command == "CRIAR"){
 			f.inicializa();
-			cout << "CRIANDO PILHA" << endl;
 		}
 		if(command == "INSERIR"){
 			int n;
@@ -35,7 +34,10 @@ int main(int argc, char** argv) {
 			f.mostra();
 		}
 		 if(command == "REMOVER"){
-			if(f.retira()==-2){printf("Fila Vazia.");}
+			//if(f.retira()==-2){
+			//	printf("Fila Vazia.");
+			//}
+			f.retira();
                 }
 	}
 }

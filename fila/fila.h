@@ -1,22 +1,27 @@
-#ifndef ELEMENTO_FILA_H_
-#define ELEMENTO_FILA_H_
+#ifndef FILA_H
+#define FILA_H
+#define MAXFILA 100
+#include "elementofila.h"
 
-#define  ELEMENTO_FILA_SIZE 40;
+#define ERROFILACHEIA -1
+#define ERROFILAVAZIA -2
 
-#include <cstring>
+class Fila{
 
-struct ElementoFila {
-	ElementoFila(char* data);
-	ElementoFila*();
-	char data[ELEMENTO_FILA_SIZE];
-	};
-	
-	#endif
-	
-	//.cc
-	
-	ElementoLista::ElementoLista(){
-	
-	}
-	
-//Lista.cc
+private:
+	ElementoFila _fila[MAXFILA];
+	int _ultimo;
+public:
+
+	Fila();
+	~Fila();
+
+	int inclui(ElementoFila dado);
+	int retira();
+	int ultimo();
+	bool cheia();
+	bool vazia();
+	void inicializa();
+	void mostra();
+};
+#endif
