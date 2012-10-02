@@ -1,21 +1,18 @@
-#include "listacontabil.h"
-#include "lancamento.h"
-#include <stdio.h>
+#include "lista.h"
+
 //@autor: Maurilio, Fristtram, Lauro
 
 // Construtor inicializa o ultimo elemento da lista com o valor -1
 
-ListaContabil::ListaContabil(){
+Lista::Lista(){
 	_ultimo = -1;
-}
-ListaContabil::~ListaContabil(){
 }
 
 // Metodo: Inicializa
 // Funçao: inicialiazar a lista
 // torna o valor de _ultimo igual a -1 inicializando a lista
 
-void ListaContabil::inicializa(){
+void Lista::inicializa(){
 	_ultimo =-1;
 }
 
@@ -25,14 +22,14 @@ void ListaContabil::inicializa(){
 // 	retorna erro de fila cheia;
 // Caso contrario
 //	atualiza o indice _ultimo
-//	insere o lancamento na lista por meio do indice _ultimo
+//	insere o dado na lista por meio do indice _ultimo
 //	retorna _ultimo
 
-int ListaContabil::adiciona(Lancamento lancamento){
+int Lista::adiciona(int dado){
 	if(cheia())
 		return ERROLISTACHEIA;
 	_ultimo++;
-	_lista[_ultimo] = lancamento;
+	_lista[_ultimo] = dado;
 	return _ultimo; 
 }
 
@@ -43,7 +40,7 @@ int ListaContabil::adiciona(Lancamento lancamento){
 //	atualiza o indice _ultimo
 //	retorna o elemento retirado
 
-int ListaContabil::retira(){
+int Lista::retira(){
 	if(vazia()){
 		return ERROLISTAVAZIA;
 	}
@@ -63,7 +60,7 @@ int ListaContabil::retira(){
 //	atualiza o indice _ultimo
 //	retorna o elemento retirado
 
-int ListaContabil::adicionaNaPosicao( int lancamento, int destino){
+int Lista::adicionaNaPosicao( int dado, int destino){
 
 	int posicao;
 	if(cheia()){
@@ -79,28 +76,28 @@ int ListaContabil::adicionaNaPosicao( int lancamento, int destino){
 			_lista[posicao]=_lista[posicao+1];
 			posicao = posicao -1;
 		}
-		_lista[destino]=lancamento;
+		_lista[destino]=dado;
 		return destino;
 	
 	}
 
 }
 
-int ListaContabil::adicionaEmOrdem(int lancamento){
+int Lista::inserirEmOrdem(int dado){
 	int posicao;
 	if(cheia())
 		return ERROLISTACHEIA;
 	else{
 		posicao = 0;
-		while(posicao <= _ultimo && maior(lancamento,_lista[posicao])){
+		while(posicao <= _ultimo && maior(dado,_lista[posicao])){
 			posicao = posicao +1;
 			}
-		return adicionaNaPosicao(lancamento,posicao);
+		return adicionaNaPosicao(dado,posicao);
 
 	}
 }
 
-int ListaContabil::retiraDaPosicao(int fonte){
+int Lista::retiraDaPosicao(int fonte){
 	int posicao, valor;
 	if(fonte > _ultimo || fonte < 0)
 		return ERROPOSICAO;
@@ -120,13 +117,13 @@ int ListaContabil::retiraDaPosicao(int fonte){
 	}
 }
 
-int ListaContabil::retiraMembro(int lancamento){
+int Lista::removerMembro(int dado){
 	int posicao;
 	if(vazia()){
 		return ERROLISTAVAZIA;
 	}
 	else{
-		posicao = posicaoNaLista(lancamento);
+		posicao = posicaoNaLista(dado);
 		if(posicao<0)
 			return ERROPOSICAO;
 		else
@@ -135,45 +132,35 @@ int ListaContabil::retiraMembro(int lancamento){
 	}
 }
 
-int ListaContabil::posicaoNaLista(int lancamento){
+int Lista::posicaoNaLista(int dado){
 	int posicao;
 	posicao = 0;
-	while(posicao <=_ultimo && not(igual(lancamento, _lista[posicao])))
+	while(posicao <=_ultimo && not(igual(dado, _lista[posicao])))
 		posicao +=1;
 	if(posicao>posicaoNaLista(_ultimo))
 		return ERROPOSICAO;
 	return ERROPOSICAO;
 }
 
-bool ListaContabil::vazia(){
+bool Lista::vazia(){
 	return _ultimo==-1;
 }
 
-bool ListaContabil::cheia(){
+bool Lista::cheia(){
 	return _ultimo == MAX+1;
 }
 
-bool ListaContabil::maior(int um, int dois){
+bool Lista::maior(int um, int dois){
 	return um > dois;
 }
-bool ListaContabil::igual(int um, int dois){
+bool Lista::igual(int um, int dois){
 	return um == dois;
 }
 bool menor(int um, int dois){
 	return um < dois;
 }
 
-void ListaContabil::destroi(){
+void Lista::destroi(){
 	_ultimo == -1;
 }
 
-int  ListaContabil::listar(){
-	if (vazia()){ return ERROLISTAVAZIA;}
-	else{
-
-		for(int i = 0 ;i<=_ultimo; i++){
-			printf("%d\n",_lista[i]);
-		}
-	return _ultimo;
-	}
-}

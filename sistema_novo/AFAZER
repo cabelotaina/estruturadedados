@@ -1,0 +1,7 @@
+Inserir lancamento.cc
+O adicionaEmOrdem esta adiciona lançamento em ordem de valores na lista, fiquei pensando se ele não deveria fazer isso em ordem alfabetica... para isso teriamos apenas que modificar o metodo maior;
+
+falta documentar:
+
+int ListaContabil::retiraDaPosicao(int fonte){
+int ListaContabil::retiraMembro(Lancamento l){
