@@ -1,7 +1,0 @@
-Abaixo esta o que o professor pede no enunciado de seu slide. Este seria se nao me engano o trabalho 1, mas acho que ele e nao pediu para fazer a pilha mas sim a lista primeiro.
-
-* Implemente todas as operações vistas sobre pilha;
-* Implemente um programa principal que utilize a pilha através de um menu com os seguintes itens: empilhar, desempilhar, limpar, mostrar pilha, sair do programa. Use a estrutura de programação switch do "C++" para isto;
-* ao mostrar a pilha, o programa deve colocar embaixo de cada dado, a sua posição no vetor. Utilize as opções de definição de tamanho de campo de impressão do printf() para isto; 
-* a pilha possuirá tamanho máximo 30, definido como uma constante chamada MAXPILHA. Utilize esta constante para a definição da estrutura de dados que será a pilha;
-* a pilha será referenciada por uma variável global.
