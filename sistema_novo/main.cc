@@ -76,9 +76,10 @@ ListaContabil *atual = NULL, debitos, creditos;
 
 
 void menuInterativo(){
-while(true){
 
-	char command;
+char command = 'x';
+while(command != 'q'){
+
 
 	
 	cout << "Sistema de Contabilidade 3CD" << endl << endl << endl;
@@ -94,8 +95,9 @@ while(true){
 		cout << " (_) Remover Transacao (desabilitado - selecionar lista)" << endl;
 		cout << " (_) Listar Transacoes (desabilitado - selecionar lista)" << endl;
 	}
-	cout << " (s) Saldo" << endl;
 
+	cout << " (s) Saldo" << endl;
+	cout << " (q) Sair/QUIT" << endl;
 	cin >> command;
 	switch(command) {
 	case 'c':
@@ -105,32 +107,56 @@ while(true){
 		atual = &debitos;
 		break;
 	case 'n':
+		  if(atual == NULL){
+                        cout << "Você nao escolheu uma lista";
+                        break;
+                }
+// cria contexto
 		int n;
                 Lancamento l;
-		cout << "escreva o valor";
+// obtem valor
+		cout << "Escreva o valor: ";
                 cin >> n;
-		cout << "escreva o nome";
+// obtem nome
+		cout << "Escreva o nome: ";
 		char nome[40];
 		cin >> nome;
+// copia dos dados
                 strcpy(l.nome, nome );
 		l.valor = n;
+// adiciona lancamento na lista selecionada pelo usuario
 		(*atual).adiciona(l);
 		break;
 	case 'r':
+
+		if(atual == NULL){
+			cout << "Você nao escolheu uma lista";
+			break;
+		}
 		(*atual).retira();
 		break;
 	case 'l':
+		  if(atual == NULL){
+                        cout << "Você nao escolheu uma lista";
+                        break;
+                }
 		(*atual).mostra();
 		break;
 	case 's':
+		  if(atual == NULL){
+                        cout << "Você nao escolheu uma lista";
+                        break;
+		}
 		int c, d;
 		for(int i = 0; i < creditos.ultimo(); i++){
-			//c += creditos.obterValor(i);
+			c += creditos.obterValor(i);
 		}
 		for(int i = 0; i < debitos.ultimo(); i++){
-			//d += debitos.obterValor(i);
+			d += debitos.obterValor(i);
 		}
 		cout << c-d << endl;
+		break;
+	case 'q':
 		break;
 	}
 }

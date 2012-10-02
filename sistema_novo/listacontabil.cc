@@ -639,5 +639,8 @@ int ListaContabil::retiraMembro(Lancamento l){
 		
 	}
 }
+int ListaContabil::obterValor(int indice){
+	return _lista[indice].valor;
+}
 // Destrutor
 ListaContabil::~ListaContabil(){}
