@@ -1,0 +1,4 @@
+#ifndef _LISTA_H_
+#define _LISTA_H_
+
+#define MAX_LISTA 40
