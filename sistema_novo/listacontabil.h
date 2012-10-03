@@ -76,7 +76,7 @@ public:
 	int retiraDaPosicao(int posicao);
 	int retiraMembro(Lancamento dado); // Esse é o retiraEspecifico dos Slides;
 	int posicao(Lancamento dado);
-	int obterValor(int indice);
+	int total();
 
 };
 #endif

@@ -69,7 +69,8 @@
 #include <sstream>
 #include "listacontabil.cc"
 #include <string.h>
-
+#include <math.h>
+#include <stdio.h>
 using namespace std;
 ListaContabil *atual = NULL, debitos, creditos;
 
@@ -111,52 +112,63 @@ while(command != 'q'){
                         cout << "Você nao escolheu uma lista";
                         break;
                 }
+		else{
 // cria contexto
-		int n;
+		int valor;
                 Lancamento l;
 // obtem valor
+		string auxiliar;
 		cout << "Escreva o valor: ";
-                cin >> n;
+		cin >> auxiliar;
+		stringstream(auxiliar) >> valor;
+		if(valor == -1)
+		cout<<"Valor invalido"<<endl;
 // obtem nome
 		cout << "Escreva o nome: ";
 		char nome[40];
 		cin >> nome;
 // copia dos dados
                 strcpy(l.nome, nome );
-		l.valor = n;
+		l.valor = valor;
 // adiciona lancamento na lista selecionada pelo usuario
 		(*atual).adiciona(l);
 		break;
+		}
 	case 'r':
 
 		if(atual == NULL){
-			cout << "Você nao escolheu uma lista";
+			cout << "Você nao escolheu uma lista"<<endl ;
 			break;
 		}
 		(*atual).retira();
 		break;
 	case 'l':
 		  if(atual == NULL){
-                        cout << "Você nao escolheu uma lista";
+                        cout << "Você nao escolheu uma lista"<<endl;
                         break;
                 }
 		(*atual).mostra();
 		break;
 	case 's':
 		  if(atual == NULL){
-                        cout << "Você nao escolheu uma lista";
+                        cout << "Você nao escolheu uma lista"<<endl;
                         break;
 		}
+		else{
 		int c, d;
-		for(int i = 0; i < creditos.ultimo(); i++){
-			c += creditos.obterValor(i);
-		}
-		for(int i = 0; i < debitos.ultimo(); i++){
-			d += debitos.obterValor(i);
-		}
-		cout << c-d << endl;
+		ListaContabil *auxiliar = atual;
+		atual = &creditos;
+			
+			c = (*atual).total();
+		atual = &debitos;
+			d = debitos.total();
+		int saldo = c - d;
+		printf("%d\n",saldo);
+		atual = auxiliar;
 		break;
+		}
 	case 'q':
+		cout << "Saindo" << endl;
 		break;
 	}
 }
@@ -208,6 +220,3 @@ int main(int argc, char** argv) {
 		lerCasoDeTeste(argv[1]);
 	}
 }
-
-
-
