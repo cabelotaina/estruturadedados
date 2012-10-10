@@ -1,0 +1,1 @@
+Programa que utiliza uma lista ordenada para adicionar elementos do tipo string com tamanho maximo definido em 10000 caracteres. A lista ordenada cria um vetor fixo de ponteiros para string, sem alocar o espaco em memoria para as strings, tem apenas o apontador.
