@@ -21,8 +21,9 @@
 – CriaLista()
 – DestróiLista(lista)
 */
-
-Lista* FUNÇÃO criaLista()
+#include "Listas_Encadeadas.h"
+#include <stdio.h>
+Lista* aLista criaLista(){
 //Retorna ponteiro para uma nova cabeça de lista ou NULO.
 
 variáveis
@@ -35,52 +36,55 @@ início
 		aLista = tamanho = 0;
 		aLista = dados = NULO;
 	}
-	return (aLista);
+	return aLista;
 };
 
 
-Booleano FUNÇÃO listaVazia(Lista *aLista)
-início
-	SE (aLista->tamanho = 0) ENTÃO
-		RETORNE(Verdadeiro)
-	SENÃO
-		RETORNE(Falso);
-fim;
+bool Lista::listaVazia(Lista *aLista){
+
+	if(aLista=tamanho = 0){
+		return true;
+	else
+	}
+ 		return false;
+};
 
 
-Inteiro FUNÇÃO adicionaNoInício(Lista *aLista,TipoInfo *dado)
-variáveis
+int Lista::adicionaNoInício(Lista *aLista,TipoInfo *dado){
+
 	tElemento *novo; //Variável auxiliar.
-início
-	novo <- aloque(tElemento);
-	SE (novo = NULO) ENTÃO
-		RETORNE(ErroListaCheia);
-	SENÃO
+	
+	novo = aloque(tElemento);
+	if(novo = NULO){
+		return ErroListaCheia;
+	}
+	else{
 		novo->próximo <- aLista->dados;
 		novo->info <- dado;
 		aLista->dados <- novo;
 		aLista->tamanho <- aLista->tamanho + 1;
-		RETORNE(1);
-	FIM SE
-fim;
+		return 1;
+	}
+};
 
-Inteiro FUNÇÃO adicionaNoInício(Lista *aLista,TipoInfo *dado)
-variáveis
+int Lista::adicionaNoInício(Lista *aLista, TipoInfo *dado){
+	
 	tElemento *novo; //Variável auxiliar.
-início
-	novo <- aloque(tElemento);
-	SE (novo = NULO) ENTÃO
-		RETORNE(ErroListaCheia);
-	SENÃO
-	novo->próximo <- aLista->dados;
-	novo->info <- dado;
-	aLista->dados <- novo;
-	aLista->tamanho <- aLista->tamanho + 1;
-		RETORNE(1);
-	FIM SE
-fim;
 
-Inteiro FUNÇÃO adicionaNoInício(Lista *aLista,	TipoInfo *dado)
+	novo = aloque(tElemento);
+	if(novo = NULO){
+		return ErroListaCheia;
+	}
+	else{
+		novo->próximo <- aLista->dados;
+		novo->info <- dado;
+		aLista->dados <- novo;
+		aLista->tamanho <- aLista->tamanho + 1;
+		return 1;
+	}
+};
+
+int Lista::adicionaNoInício(Lista *aLista, TipoInfo *dado)
 variáveis
 tElemento *novo; //Variável auxiliar.
 início
