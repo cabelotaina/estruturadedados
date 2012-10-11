@@ -27,7 +27,7 @@ int  adicionaNoInicio(Lista *aLista,TipoInfo *dado)
 	if (novo = NULL) {
 		return ERROLISTACHEIA;
 	}else{
-		novo->próximo = aLista->dados;
+		novo->proximo = aLista->dados;
 		novo->info = dado;
 		aLista->dados = novo;
 		aLista->tamanho = aLista->tamanho + 1;
@@ -36,7 +36,7 @@ int  adicionaNoInicio(Lista *aLista,TipoInfo *dado)
 }
 
 
-TipoInfo*  retiraDoInício(Lista *aLista)
+TipoInfo*  retiraDoInicio(Lista *aLista)
 
 {
 
@@ -45,14 +45,14 @@ TipoInfo*  retiraDoInício(Lista *aLista)
 	}else{
 		saiu = aLista->dados;
 		volta = saiu->info;
-		aLista->dados = saiu->próximo;
+		aLista->dados = saiu->proximo;
 		aLista->tamanho = aLista->tamanho - 1;
-		delete(saiu);
+		delete (saiu);
 		return(volta);
 	}
 }
 
-inteiro  eliminaDoInício(Lista *aLista)
+inteiro  eliminaDoInicio(Lista *aLista)
 
 
 {
@@ -61,45 +61,48 @@ inteiro  eliminaDoInício(Lista *aLista)
 		return ERROLISTAVAZIA;
 	}else{
 		saiu = aLista->dados;
-		aLista->dados = saiu->próximo;
+		aLista->dados = saiu->proximo;
 		aLista->tamanho = aLista->tamanho - 1;
-		delete(saiu->info);
-		delete(saiu);
+		delete (saiu->info);
+		delete (saiu);
 		return(aLista->tamanho + 1);
 	}
 }
 
-#inclua listaEnc.h
-{
+//////////////////// isso é a parte que descreve o programa principal
+
+
+#include listaEnc.h // o que é isso?
+
 	tLista *devedores, *credores, *listaEscolhida;
 	TipoInfo *dado;
-	caracter opção;
+	caracter opcao;
 
-Programa Principal
+//Programa Principal
 
 	devedores = criaLista();
 	credores = criaLista();
-	opção = '';
-	ENQUANTO (opção != 'f') {
+	opcao = '';
+	while (opcao != 'f') {
 		escreveMenu();
-		leia(opção);
-		CASO opção ifJA
+		leia(opcao);
+		CASO opcao ifJA
 			'c': listaEscolhida = credores;
 			'd': listaEscolhida = devedores;
 			'i': dado = leiaInfo();
 			adicionaNoInicio(listaEscolhida, dado);
-		FIM CASO
-	FIM ENQUANTO
+		{ CASO
+	}
 }
 
-int  adicionaNaPosição(tLista *aLista, TipoInfo *info,
-inteiro posição)
+int  adicionaNaPosicao(tLista *aLista, TipoInfo *info,
+inteiro posicao)
 {
 
-	if (posição > aLista->tamanho + 1) {
-		return(ErroPosição)
+	if (posicao > aLista->tamanho + 1) {
+		return ERROPOSICAO;
 	}else{
-		if (posição = 1) {
+		if (posicao = 1) {
 			return(adicionaNoInicio(aLista, info));
 		}else{
 			novo = aloque(tElemento);
@@ -107,11 +110,11 @@ inteiro posição)
 				return ERROLISTACHEIA;
 			}else{
 				anterior = aLista->dados;
-				REPITA (posição - 2) VEZES
-					anterior = anterior->próximo;
-					novo->pr<óximo = anterior->próximo;
+				for (posicao - 2) {
+					anterior = anterior->proximo;
+					novo->pr<oximo = anterior->proximo;
 					novo->info = info;
-					anterior->próximo = novo;
+					anterior->proximo = novo;
 					aLista->tamanho = aLista->tamanho + 1;
 					return(aLista->tamanho);
 			}
@@ -119,46 +122,46 @@ inteiro posição)
 	}
 }
 
-TipoInfo*  retiraDaPosição(tLista *aLista, inteiro posição)
+TipoInfo*  retiraDaPosicao(tLista *aLista, inteiro posicao)
 {
 
-if (posição > aLista->tamanho) {
+if (posicao > aLista->tamanho) {
 return(NULL);
 }else{
-if (posição = 1) {
-return(retiraDoInícioaLista);
+if (posicao = 1) {
+return retiraDoInicioaLista();
 }else{
 anterior = aLista->dados;
-REPITA (posição - 2) VEZES
-anterior = anterior->próximo;
-eliminar = anterior->próximo;
+for (posicao - 2) {
+anterior = anterior->proximo;
+eliminar = anterior->proximo;
 volta = eliminar->info;
-anterior->próximo = eliminar->próximo;
+anterior->proximo = eliminar->proximo;
 aLista->tamanho = aLista->tamanho - 1;
-delete(eliminar);
+delete (eliminar);
 return(volta);
 }
 }
 }
 
 
-TipoInfo*  retiraDaPosição(tLista *aLista, inteiro posição)
+TipoInfo*  retiraDaPosicao(tLista *aLista, inteiro posicao)
 {
 
-if (posição > aLista->tamanho) {
+if (posicao > aLista->tamanho) {
 return(NULL);
 }else{
-if (posição = 1) {
-return(retiraDoInícioaLista);
+if (posicao = 1) {
+return retiraDoInicioaLista();
 }else{
 anterior = aLista->dados;
-REPITA (posição - 2) VEZES
-anterior = anterior->próximo;
-eliminar = anterior->próximo;
+for (posicao - 2) {
+anterior = anterior->proximo;
+eliminar = anterior->proximo;
 volta = eliminar->info;
-anterior->próximo = eliminar->próximo;
+anterior->proximo = eliminar->proximo;
 aLista->tamanho = aLista->tamanho - 1;
-delete(eliminar);
+delete (eliminar);
 return(volta);
 }
 }
@@ -166,39 +169,39 @@ return(volta);
 
 int  adicionaEmOrdem(tLista *aLista, TipoInfo dado)
 {
-inteiro posição;
+inteiro posicao;
 
 if (listaVaziaaLista) {
 return(adicionaNoInicio(aLista, dado));
 }else{
 atual = aLista->dados;
-posição = 1;
-ENQUANTO (atual->próximo != NULL E
-maior(dado, atual->info)) FAÇA
+posicao = 1;
+while (atual->proximo != NULL E
+maior(dado, atual->info)) FACA
 
-atual = atual->próximo;
-posição = posição + 1;
-FIM ENQUANTO
-return(adicionaNaPosição(aLista, dado, posição + 1));
+atual = atual->proximo;
+posicao = posicao + 1;
+}
+return adicionaNaPosicao(aLista, dado, posicao + 1);
 }else{
-return(adicionaNaPosição(aLista, dado, posição));
+return adicionaNaPosicao(aLista, dado, posicao);
 }
 }
 }
 
- destróiLista(tLista *aLista)
+ destroiLista(tLista *aLista)
 {
 
 if (listaVaziaaLista) {
-deleteaLista;
+delete  aLista;
 }else{
 atual = aLista->dados;
-ENQUANTO (atual != NULL) FAÇA
+while (atual != NULL) FACA
 anterior = atual;
-atual = atual->próximo;
-delete(anterior->info);
-delete(anterior);
-FIM ENQUANTO
-deleteaLista;
+atual = atual->proximo;
+delete (anterior->info);
+delete (anterior);
+}
+delete  aLista;
 }
 }
