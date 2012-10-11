@@ -1,0 +1,92 @@
+Classe LinkedStack.h
+
+#inndef _LINKED_STACK_H
+#define _LINKED_STACK_H
+
+class StackInfo{
+public:
+	int data;
+};
+
+class StackElement{
+public:
+		StackElement* next;
+		StacknInfo;
+};
+
+class LinkedStack
+{
+public:
+		LinkedStack();
+		~LinkedStack();
+		
+		StackInfo* pop();
+		void push(StackInfo* info);
+		StackInfo* peek();
+		
+private:
+		StackElement* head;
+		int size;
+}
+#endif
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Classe LinkedStack.cc
+
+include <LinkedStack.h>
+
+LinkedStack::LinkedStack()
+{
+		head = 0;
+		size = 0;
+}
+
+LinkedStack::~LinkedStack()
+{
+		while(head)
+		delete pop();
+}
+
+void LinkedStack::push(StackInfo* info)
+{
+		StackElement* newElement = new StackElement(info);
+		
+		newElement->next = head;
+		head = newElement;
+		size++;	
+}
+
+StackInfo* LinkedStack::pop()
+{
+		if(!head)
+		{
+			return 0;
+		}
+		StackElement* toDelete = head;
+		StackInfo* info = head->info
+		head = head->next;
+		delete toDelete;
+		
+}
+
+StackInfo* LinkedStack::peek()
+{
+		if (!head)
+		return 0;
+		return head->info;
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Classe Main.cc
+
+int main(){
+		
+		
+		
+		
+		
+		
+		
+		
+		
