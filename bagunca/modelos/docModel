@@ -1,0 +1,489 @@
+r para o conteúdo principal
+	
+Guia para documentação de programas em C / C++
+Fonte: http://www.bgsu.edu/departments/compsci/docs/documentation.html, Bowling Green State University, Bowling Green, Ohio.
+
+Por que documentar um programa é importante?
+
+1) O principal proposito da documentação é descrever o “desenho” do seu programa. A documentação também provê o framework em que você vai colocar o seu código.Conforme a codificação avança, o código é inserido dentro deste framework já criado pela documentação do programa;
+
+2) A documentação é importante para dizer a outros programadores o que o programa faz e como ele funciona. No “mundo real”, os programadores normalmente trabalham em equipes para desenvolver aplicações. A documentação auxilia aos outros membros da equipe a entender o trabalho;
+
+3) A manutenção e debugação são necessárias cedo ou tarde para a maioria dos programas e estas frequentemente são efetuadas por um programador que não seja o autor do código. A documentação pode ajudar o programador que está fazendo as modificações a entender o seu código;
+
+4) Documentar o seu programa durante o desenvolvimento ajuda a você manter sua sanidade.
+
+Quando a documentação deve ser feita?
+
+No desenvolvimento do seu programa, você deve gastar tempo pensando em como deve estruturar o programa, quais módulos são necessários, e os algoritmos e procesos que você vai utilizar nos módulos. Você deve pensar sobre o tipo de estruturas de dados e objetos (ex.: arrays, arquivos, listas) que são necessárias. Este pensamento deve ser feito antes de começar a codificar, ou você encontrará problemas desperdiçando tempo escrevendo código inútil e cheio de erros. É muito importante lembrar deste processo criativo para que os programadores que continuem o seu trabalho não façam novamente o trabalho que você já fez. 
+
+Antes de escrever o código, você deve escrever a documentação para descrever o desenho de cada componente de seu programa. 
+
+Escrevendo documentação para os módulos antes de escrever o código ajuda a você definir exatamente o que cada módulo deve fazer e como ele deve interagir com os outros módulos. Se você focar no desenho e nos passos necessáriospara resolver determinado problema, pode ajudar a prevenir erros quando a programação estiver completada.
+
+
+Que informações devem estar na documentação?
+
+Para um módulo individual, é importante registrar (1) quem escreveu o módulo, (2) quando o módulo foi escrito, ou modificado, (3) por que o módulo foi escrito ou modificado, (4) como o módulo interage com os outros módulos, (5) quais são os algoritmos especiais que foram utilizados, se houverem, (6) citar as fontes externas e algoritmos. Para estruturas de dados, é importante registrar (1) qual estrutura de dados é usada, (2) por que foi utilizada determinada estrutura, (3) o conteúdo da estrutura e (4) como a estrutura é implementada.
+
+Como a documentação deve ser feita?
+
+As seções seguintes contém guidelines para a documentação que devem ser utilizadas em um arquivo de C++ contendo o programa main e algumas funções. A documentação e linhas de comentário começam com barras duplas (//) e todo o texto até o final da linha é considerado comentário. A documentação deve aparecer:
+
+antes do programa principal (program header)
+antes de cada função (function header)
+antes ou depois das linhas de código dentro da função (linhas de comentário)
+Um exemplo
+
+Uma pequena universidade precisa ajudar a manter o controle de matrículas em cada um dos dez cursos. Eles pediram para escrever um programa para ajudar nesta tarefa. A primeira coisa que eles querem é uma lista dos dados de inscrição ordenada pelo número de identificação.
+
+Escreva um programa que irá ler os dados, ordena-los pelo número de identificação e imprimir a lista ordenada. Eles também gostariam de ver o total de matrículas em todos os cursos.
+
+Entrada: O usuário deve prover o número de identificação e de inscrição em cada curso. 
+
+Método: O programa deverá conter 2 arrays paralelos para armazenar os dados. Use funções para ler em separado, ordenar e imprimir os dados nas matrizes. Você deve usar o bubble sort para ordenar os dados.
+
+Saída: Deve ser claramente rotulada e fácil de ler. Ele deve incluir o número de identificação de cada curso e da inscrição no referido curso.
+
+Imprimir a saída em forma de tabela.
+
+A solução da amostra é apresentada abaixo. Os comentários desta solução são representativos do tipo de documentação que você deve colocar em suas atribuições de programação. O código também foi inserido em um estilo que tem sido eficaz para os alunos aprender a linguagem C / C++.
+
+Conforme você estiver lendo o exemplo, veja os seguintes pontos a seguir (Notas referidas pelos números abaixo).
+
+Protótipo de funções requer somente os tipos dos dados dos argumentos passados. Entretanto, incluindo o nome de cada parâmetro, seu código se tornará mais fácil de ler e auto-documentado já que está dizendo o que cada parâmetro é.
+Há vários estilos para usar as chaves ({, }) em um programa C/C++. Neste exemplo é início do bloco ( { ) é separado por linha e o final do bloco ( } ) está no mesmo nível de identação. Estudos mostram que é mais fácil para o entendimento de iniciantes.
+É usado pseudo-código para descrever o método da função.
+Statements que tem mais de uma linha geralmente são identados após a primeira linha.
+As chaves são opcionais porque há apenas uma statement no bloco do loop. Entretanto, é sempre bom inserir as chaves, pois alterações no futuro se tornarão mais fáceis e ficará claro para outros programadores que possivelmente irão alterar o código.
+Algumas funções são genéricas e serão reutilizadas. Por isso, nomes genéricos são usados nos parâmetros.
+Representa como será o fluxo do programa. Ajuda a entender o que é esperado que o programa faça.
+ // FILE: enroll.cpp
+ // TITLE: Course Enrollments
+ // SUBMITTED BY: Ima Student
+ // All code is my own except where credited to others.
+ // FOR COURSE: CS 2020
+ // DUE DATE: March 30, 1999
+ //
+ // PURPOSE:
+ // This program will keep track of enrollments in courses at a small
+ // university. It will read, from the user, the course id number and
+ // enrollment for each course offered. The data will then be sorted
+ // from smallest to largest id number. The sorted list will then be
+ // printed along with the total enrollments for all courses.
+ //
+ // OVERALL METHOD:
+ // The list of general tasks is:
+ // 1. Input course data from the user and store in parallel one-
+ // dimensional arrays.
+ // 2. Sort the parallel arrays by id number. A bubble sort will
+ // be used.
+ // 3. Print sorted course data stored in arrays.
+ // 4. Print total enrollment at university.
+ //
+ // FUNCTIONS:
+ //
+ // getCourseData
+ // will read data from the user into arrays and, upon exit,
+ // return the total enrollment for all courses
+ //
+ // bubbleSort
+ // will sort the arrays of id numbers and enrollments from
+ // smallest to largest id numbers
+ //
+ // printCourseData
+ // will print the data contained in the arrays and, after
+ // that, the total enrollment
+ //
+ // swap
+ // is called by bubbleSort to exchange two array values
+ //
+ // INCLUDED FILES:
+ // iostream.h
+ // iomanip.h
+ //
+ // DATA FILES:
+ // none
+
+ #include <iostream.h>
+ #include <iomanip.h>
+
+ int getCourseData( int nCourses, int courseids[], int enrollments[] ); ** note 1 **
+ void printCourseData( int total, int nCourses, int courseids[], int enrollments[] );
+ void bubbleSort( int n, int keys[], int values[] );
+ void swap( int & item1, int & item2 );
+
+ int main( )
+ { ** note 2 **
+ const int nCourses = 3; // Program inefficient if nCourses is large!
+ int courseids[ nCourses ], enrollments[ nCourses ];
+ int total = getCourseData( nCourses, courseids, enrollments );
+ bubbleSort( nCourses, courseids, enrollments );
+ printCourseData( total, nCourses, courseids, enrollments );
+ return 0; // Error level of 0 means normal termination
+ } ** note 2 **
+
+ // name OF FUNCTION: getCourseData
+ // CREDIT:
+ // PURPOSE:
+ // The function will read, from the user, the course id and the
+ // enrollment in the course. These values will be stored in a set of
+ // parallel arrays named "ids" and "totals". The function will return
+ // the total enrollment.
+ //
+ // PARAMETERS:
+ // name type value/reference description
+ // ---------------------------------------------------------------------
+ // n int value number of values in the array
+ // ids[] int reference the array of id numbers
+ // totals[] int reference the array of enrollment totals
+ // for each course
+ //
+ // RETURN VALUE:
+ // name type description
+ // ---------------------------------------------------------------------
+ // grandtotal int the overall total enrollment for the university
+ //
+ // CALLS TO: none
+ //
+ // CALLED FROM: main
+ //
+ // METHOD: The following is pseudocode describing how the function works.
+ // 1. Initialize the grand total to zero. ** note 3 **
+ // 2. Prompt user for data expected.
+ // 3. Loop and execute n times.
+ // Use loop counter as subscript of arrays
+ // 3.1 Prompt user for specific course data.
+ // 3.2 Read in id.
+ // 3.3 Read in enrollment.
+ // 3.4 Add to enrollment to the grand total.
+ // 4. Return the grand total.
+
+ int getCourseData( int n, int ids[], int totals[] )
+ {
+ int grandTotal = 0;
+ cout << endl ** note 4 **
+ << "For each of " << n << " courses," << endl
+ << " enter the course id and the number of students in that course."
+ << endl
+ << " Enter these two values on one line, separated by a space."
+ << endl
+ << endl;
+
+ for ( int i = 0; i < n; i++ )
+ {
+ cout << "Course " << i + 1 << " -- id and number of students: ";
+ cin >> ids[i] >> totals[i];
+ grandTotal += totals[i];
+ }
+ return grandTotal;
+ }
+
+ // name OF FUNCTION: printCourseData
+ // CREDIT:
+ // PURPOSE:
+ // The function will loop through parallel data arrays named "ids" and
+ // "totals", and will print out the course id and enrollment for each
+ // course. Finally, it will print out the total enrollment. Formatting
+ // is applied to make the output readable by humans.
+ //
+ // PARAMETERS:
+ // name type value/reference description
+ // ---------------------------------------------------------------------
+ // gTot int value the overall total enrollment
+ // n int value number of values in the array
+ // ids[] int reference the array of id numbers
+ // totals[] int reference the array of enrollment totals
+ // for each course
+ //
+ // RETURN VALUE: none
+ //
+ // CALLS TO: none
+ //
+ // CALLED FROM: main
+ //
+ // METHOD: The following is pseudocode describing how the function works.
+ // 1. Print titles for the columns of data.
+ // 2. Print a separator.
+ // 3. Loop and execute n times. Use the loop counter to index the arrays.
+ // 3.1 Print the course id.
+ // 3.2 Print the enrollment in that course.
+ // 4. Print a separator.
+ // 5. Print the enrollment for the entire university.
+
+ void printCourseData( int gTot, int n, int ids[], int totals[] )
+ {
+ cout << endl
+ << setw(10) << "Class id"
+ << setw(12) << "Enrollment" << endl
+ << "----------------------" << endl;
+ for ( int i = 0; i < n; i++ )
+ { ** note 5 **
+ cout << setw(10) << ids[i]
+ << setw(12) << totals[i] << endl;
+ } ** note 5 **
+ cout << "----------------------" << endl
+ << setw(10) << "Total" << setw(12) << gTot << endl;
+ }
+
+ // name OF FUNCTION: bubbleSort
+ // CREDIT: Adapted from Robert Sedgewick, ALGORITHMS (1992), page 1010.
+ // PURPOSE:
+ // This generic function will sort parallel data arrays, one containing
+ // keys, the other containing values associated 1-to-1 with those keys.
+ //
+ // PARAMETERS:
+ // name type value/reference description
+ // ---------------------------------------------------------------------
+ // n int value number of values in the array
+ // keys[] int reference the array of keys
+ // values[] int reference the array of values for each course
+ //
+ // RETURN VALUE: none
+ //
+ // CALLS TO: swap
+ //
+ // CALLED FROM: main
+ //
+ // METHOD: The following is pseudocode describing how the function works
+ // 1. Do the following n-1 times.
+ // 1.1 Point to the first element of the array containing keys.
+ // 1.2 Do the following n-1 times.
+ // 1.2.1 Compare the element pointed to with the next element.
+ // 1.2.2 If the compared elements are in the wrong order ...
+ // 1.2.2.1 Swap the keys.
+ // 1.2.2.2 Swap the values associated with those keys.
+ // 1.2.3 Point to the next element.
+ //
+ // NOTE:
+ // This method is extremely inefficient except for small arrays.
+
+ void bubbleSort( int n, int keys[], int values[] ) ** note 6 **
+ {
+ int last, next;
+ for ( int i = 1; i < n; i++ )
+ {
+ last = n - i;
+ for ( int j = 0; j < last; j++ )
+ {
+ next = j + 1;
+ if ( keys[j] > keys[next] )
+ {
+ swap( keys[j], keys[next] );
+ swap( values[j], values[next] );
+ }
+ }
+ }
+ }
+
+ // name OF FUNCTION: swap
+ // CREDIT:
+ // PURPOSE:
+ // This utility function exchanges the values of its two parameters.
+ //
+ // PARAMETERS:
+ // name type value/reference description
+ // ---------------------------------------------------------------------
+ // item1 int reference item to be swapped with item2
+ // item2 int reference item to be swapped with item1
+ //
+ // RETURN VALUE: none
+ //
+ // CALLS TO: none
+ //
+ // CALLED FROM: bubbleSort
+ //
+ // METHOD: The following is pseudocode describing how the function works.
+ // 1. Save a reference to item1's content.
+ // 2. Store in item1 a reference to item2's content.
+ // 3. Using the saved reference, store in item2 a reference to
+ // item1's original content.
+
+ void swap( int & item1, int & item2 )
+ {
+ int temp = item1;
+ item1 = item2;
+ item2 = temp;
+ }
+
+ // EXAMPLE INPUT AND OUTPUT ** note 7 **
+ //
+ // For each of 3 courses,
+ // enter the course id and the number of students in that course.
+ // Enter these two values on one line, separated by a space.
+ //
+ // Course 1 -- id and number of students: 8402 21
+ // Course 2 -- id and number of students: 3589 35
+ // Course 3 -- id and number of students: 4521 59
+ //
+ // Class id Enrollment
+ // ----------------------
+ // 3589 35
+ // 4521 59
+ // 8402 21
+ // ----------------------
+ // Total 1150
+
+Instruções adicionais:
+
+Mantenha as funções simples!
+
+Funções de 5 a 25 linhas, sem contar os comentários, são recomentadas. Na prática, isso significa que se você não puder ver o bloco inteiro
+
+na tela de terminal de uma só vez, provavelmente precisa ser quebrado em componentes para ser visualizado na tela. As funções main() do
+
+C++ normalmente tendem a ser um pouco mais longas. Recomenda-se que não tenham mais do que 25 linhas ou 20% do da extensão do código, o que for menor.
+
+Espaço em branco
+
+O formato do código fonte é importante para manter o programa legível. O termo “formato” se refere tanto ao espaço em branco vertical quanto ao horizontal.
+
+Em linguagens de alto nível, linhas em branco podem ser usadas para espaço vertical e, para espaço horizontal, blocos de código podem ser “identados”.
+
+Identificadores
+
+Os identificadores (funções, variáveis e nomes de constantes) que são utilizadas também afetam a legibilidade do programa. Crie identificadores mais auto-documentáveis com cuidado e criatividade escolhendo nomes similares ao inglês e com comprimento suficiente para que expressem o significado das tarefas a serem executadas. Por exemplo, “testScores” é muito melhor para nomear um array do que “intarray”, e "computeAverage" é um nome melhor para uma função do que “doCalculations”.
+
+Arquivos de inclusão
+
+Todos os arquivos de inclusão utilizados em um programa devem ser colocados no começo do arquivo. Coloque arquivos de sistema (<....>) antes dos arquivos de usuário (“....”), como no exemplo a seguir:
+
+ #include <iomanip.h>
+ #include <iostream.h>
+ #include "date1.h"
+ #include "myobject.h"
+Ortografia e gramática
+
+Ortografia correta e uma boa gramática deve ser utilizada em todos os comentários. Esteja preparado para ser avaliado tanto por programadores como por escritores.
+
+Statement
+
+The following table shows how to format and indent various C++ features.
+
+C++ function	
+void main(int argc, char *argv[])
+{
+ // Body of function indented within { }
+} 
+if statement	
+if (condition)
+ // one statement indented
+else
+ // one statement indented
+if statement with blocks	
+if (condition)
+{ // multiple
+ // statements
+ // indented
+}
+else
+{ // multiple
+ // statements
+ // indented
+}
+if statement with else if	
+if (condition1)
+{ // multiple statements indented
+}
+else if (condition2)
+{ // multiple statements indented
+}
+else if (condition3)
+{ // multiple statements indented
+}
+else
+{ // multiple statements indented
+}
+while loop	
+while (condition)
+{ // multiple statements indented
+}
+for loop	
+for (int i = 0; i <= 20; ++i)
+{ // multiple statements indented
+}
+do/while	
+do
+{ // multiple statements indented
+} while (condition);
+switch statement	
+switch (value)
+{ case value1: case value2:
+ // multiple statements indented
+ break;
+ case value3:
+ // multiple statements indented
+ break;
+ default:
+ // multiple statements indented
+ break;
+}
+Documentando classes definidas pelo usuário
+
+Quando utilizamos a programação orientada a objeto, como o C++, os programadores normalmente criam suas próprias classes e então declaram objetos destas classes. Estes programas são frequentemente compostos por muitos arquivos – um ou mais arquivos de cabeçalho contendo definições de classe, arquivos de implementação contendo funções de classe, e um arquivo contendo o programa principal. A seguir a descrição de qual documentação deve aparecer em cada um destes arquivos.
+
+Arquivos cabeçalho
+
+A documentação no arquivo de cabeçalho deve ser clara e descrever a interface da classe. Isto é, a tarefa desenvolvida por cada membro da função deve ser descrita para que o programa cliente onde são declarados os objetos deste tipo saiba exatamente o que a classe faz. Esta documentação deve ser escrita para que, mesmo um não programador entenda. A documentação de cabeçalho deve aparecer antes da declaração dos parametros e deve ser da seguinte forma:
+
+ Class name: Use a descriptive name beginning with a capital letter. Other words
+ within the name should have the first letter capitalized, like Circle or
+ RationalNumber.
+ Written by: Your name. list all programmers and sources.
+ For: Course name Course time Project id
+ Purpose: Tell what the user program can expect from this class. Describe what
+ the class represents. This should be implied by the class name, but be
+ more specific.
+ Member functions: list and describe briefly the tasks performed by each class function.
+ list constructors and public and protected functions first, private
+ functions last. Parameter lists should be described so the client
+ program will know how to call this function.
+ Member data: list each data variable and briefly describe its purpose.
+Exemplo:
+
+ // Class name: Date
+ // Written by: programmer name
+ // For: CS 2020 1:30 MWF Project #3
+ // Purpose: Objects of this class type will keep track of the
+ // month, day and year of a Date value. The program
+ // which uses this class can declare and initialize
+ // Date objects, change a date or print a Date in
+ // the form m/d/y.
+ // Member functions:
+ // Date(int = 1, int = 1, int = 1999)
+ // This constructor function will accept from the
+ // calling program initial values for month, day,
+ // year, in this order. Or it will assign the default
+ // date of 1/1/95. Will check for valid values.
+ // setdate(int, int, int)
+ // This function will assign new integer values of
+ // the month, day and year of the date. The
+ // parameters represent the new values to be
+ // assigned in order of month, day, year. Will
+ // check for valid values.
+ // printdate()
+ // This function will display the date in format
+ // of m/d/y when called from a client program.
+ // Member data:
+ // month
+ // integer variable representing month value 1-12
+ // day
+ // integer variable representing day value 1-31
+ // year
+ // integer variable representing year value
+ // (4-digit number)
+ //
+Arquivos de implementação
+
+Este arquivo deve começar com o nome da classe a qual as funções pertencem e o nome do programador, da classe, data e projeto. Por exemplo,
+
+ #include <iostream.h>
+ #include "date.h"
+
+ // Class: Functions for class Date
+ // Written by: Programmer's name
+ // For: CS 2020 1:30 MWF Project #3 
+Cada função deve ser documentada como nos arquivos de cabeçalho.
+
+
+Última atualização: quarta, 1 fevereiro 2012, 19:34
