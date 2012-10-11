@@ -1,40 +1,40 @@
-Lista*  criaLista(){
+#ifndef _LISTA_ENCADEADA_
+#define _LISTA_ENCADEADA_
+//necessario
+class Lista{
 
-Booleano  listaVazia(Lista *aLista)
+private:
 
+// colocar as variaveis
 
-int  adicionaNoInicio(Lista *aLista,TipoInfo *dado)
+public:
 
+	Lista();
+	~Lista();
+//1) maurilio
+	adiciona(ElementoLista dado); //nao tem codigo
+	adicionaNoInicio(ElementoLista dado); //slide
+	adicionaNaPosicao(ElementoLista dado); //slide
+	adicionaEmOrdem(ElementoLista dado); //slide
+//2) lauro
+	retira() //nao tem coidigo
+	retiraDoInicio(); //slide 2 formas
+	retiraDaPosicao(int posicao); //slide
+	retiraEspecifico(ElementoLista dado); //nao tem no slide
+//3) fristram
+	listaVazia(); //slide
+	posicao(ElementoFila dado);
+	contem(ElementoFila dado);
+	criaLista(); //slide
+	destroiLista();
+//4)  lauro
+//cabecalho listaenc.h
 
-TipoInfo*  retiraDoInicio(Lista *aLista)
+//5)  lauro
+//main
 
+//no slide tem 
 
-inteiro  eliminaDoInicio(Lista *aLista)
-
-necessario
-
-1) maurilio
-Adiciona(ElementoLista) nao tem codigo
-AdicionaNoInicio(ElementoLista) slide
-AdicionaNaPosicao(ElementoLista) slide
-AdicionaEmOrdem(ElementoLista) slide
-2) lauro
-Retira() nao tem coidigo
-RetiraDoInicio() slide 2 formas
-RetiraDaPosicao(posicao) slide
-RetiraEspecifico(ElementoLista) nao tem no slide
-3) fristram
-ListaVazia() slide
-Posicao(ElementoFila)
-Contem(ElementoFila)
-CriaLista() slide
-DestroiLista()
-4)  lauro
-cabecalho listaenc.h
-
-5)  lauro
-main
-
-no slide tem 
-
-main tem no slide
+//main tem no slide
+}
+#enfif

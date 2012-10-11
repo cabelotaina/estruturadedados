@@ -20,18 +20,18 @@ Booleano  listaVazia(Lista *aLista)
 }
 
 
-int  adicionaNoInicio(Lista *aLista,TipoInfo *dado)
-{
-
+int  adicionaNoInicio(Lista *aLista,TipoInfo *dado){
+	
 	novo = aloque(tElemento);
 	if (novo = NULL) {
 		return ERROLISTACHEIA;
-	}else{
+	}
+	else{
 		novo->proximo = aLista->dados;
 		novo->info = dado;
 		aLista->dados = novo;
 		aLista->tamanho = aLista->tamanho + 1;
-		return(1);
+		return 1;
 	}
 }
 
