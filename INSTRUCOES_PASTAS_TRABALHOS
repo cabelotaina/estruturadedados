@@ -1,0 +1,8 @@
+
+ trabalhoN/ - pasta corrente onde editamos os arquivos do trabalho, arquivos .cc e .h nos quais estamos trabalhando, alem de casos de teste
+
+ trabalhoN/outros - pdf, ppt, doc, txt e demais arquivos auxiliares, mesmo pseudo codigo
+
+ trabalhoN/versaofinal - tudo (.cc e .h) que estava em trabalhoN/ e foi entregue via moodle, ou seja, versao 100% e limpo de rascunhos
+
+ trabalhoN/naousado - tudo que estava em trabalhoN/ e acabou nao sendo usado na versao final, rascunhos, etc
