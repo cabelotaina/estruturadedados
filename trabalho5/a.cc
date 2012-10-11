@@ -14,7 +14,7 @@ Lista*  criaLista(){
 Booleano  listaVazia(Lista *aLista)
 
 	if (aLista->tamanho = 0) {
-		return true
+		return(Verdadeiro)
 	}else{
 		return false;
 }
