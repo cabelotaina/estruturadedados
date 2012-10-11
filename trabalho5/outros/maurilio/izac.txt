@@ -1,0 +1,10 @@
+Trabalho 5
+Agenda:
+
+string nome;
+string or int telefone;
+Lista l = *elemento; // precisa de uma classe Lista
+int tamanho;
+InfoLista = (aplicacao) -> string -> nome , telefone; // classe InfoLista
+Main = Lista*, (fazer menu) // classe Main
+
