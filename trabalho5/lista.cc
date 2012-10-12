@@ -69,54 +69,25 @@ inteiro  eliminaDoInicio(Lista *aLista)
 	}
 }
 
-//////////////////// isso é a parte que descreve o programa principal
-
-
-#include listaEnc.h // o que é isso?
-
-	tLista *devedores, *credores, *listaEscolhida;
-	TipoInfo *dado;
-	caracter opcao;
-
-//Programa Principal
-
-	devedores = criaLista();
-	credores = criaLista();
-	opcao = '';
-	while (opcao != 'f') {
-		escreveMenu();
-		leia(opcao);
-		CASO opcao ifJA
-			'c': listaEscolhida = credores;
-			'd': listaEscolhida = devedores;
-			'i': dado = leiaInfo();
-			adicionaNoInicio(listaEscolhida, dado);
-		{ CASO
-	}
-}
-
-int  adicionaNaPosicao(tLista *aLista, TipoInfo *info,
-inteiro posicao)
-{
-
+int  adicionaNaPosicao(TipoInfo *dado, int posicao){
 	if (posicao > aLista->tamanho + 1) {
 		return ERROPOSICAO;
 	}else{
 		if (posicao = 1) {
-			return(adicionaNoInicio(aLista, info));
+			return(adicionaNoInicio(&dado));
 		}else{
-			novo = aloque(tElemento);
+			novo = new TipoInfo;
 			if (novo = NULL) {
 				return ERROLISTACHEIA;
 			}else{
 				anterior = aLista->dados;
 				for (posicao - 2) {
 					anterior = anterior->proximo;
-					novo->pr<oximo = anterior->proximo;
+					novo->proximo = anterior->proximo;
 					novo->info = info;
 					anterior->proximo = novo;
 					aLista->tamanho = aLista->tamanho + 1;
-					return(aLista->tamanho);
+					return aLista->tamanho;
 			}
 		}
 	}
@@ -167,27 +138,24 @@ return(volta);
 }
 }
 
-int  adicionaEmOrdem(tLista *aLista, TipoInfo dado)
-{
-inteiro posicao;
+int  adicionaEmOrdem(TipoInfo *dado){
+int posicao;
 
-if (listaVaziaaLista) {
-return(adicionaNoInicio(aLista, dado));
-}else{
-atual = aLista->dados;
-posicao = 1;
-while (atual->proximo != NULL E
-maior(dado, atual->info)) FACA
+	if (listaVazia()) {
+		return adicionaNoInicio(&dado);
+	}
+	else{
+		atual = aLista->dados;
+		posicao = 1;
+		while (atual->proximo != NULL && maior(&dado, &atual->info)){
+			atual = atual->proximo;
+			posicao = posicao + 1;
+		}
+	return adicionaNaPosicao( &dado, posicao + 1);
+	}
+return adicionaNaPosicao(&dado, posicao);
+}
 
-atual = atual->proximo;
-posicao = posicao + 1;
-}
-return adicionaNaPosicao(aLista, dado, posicao + 1);
-}else{
-return adicionaNaPosicao(aLista, dado, posicao);
-}
-}
-}
 
  destroiLista(tLista *aLista)
 {

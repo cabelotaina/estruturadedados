@@ -1,21 +1,27 @@
+// Neste arquivo esta a divisao do trabalho para Maurilio, Fristram e Lauro
+
 #ifndef _LISTA_ENCADEADA_
 #define _LISTA_ENCADEADA_
-//necessario
+#include "tipoinfo.h"
+
+#define ERROLISTAVAZIA -1
+#define ERROPOSICAO -2
 class Lista{
 
 private:
-
-// colocar as variaveis
+	Lista *aLista;
+	int tamanho;
+// colocar as variaveis 
 
 public:
 
 	Lista();
 	~Lista();
 //1) maurilio
-	adiciona(ElementoLista dado); //nao tem codigo
-	adicionaNoInicio(ElementoLista dado); //slide
-	adicionaNaPosicao(ElementoLista dado); //slide
-	adicionaEmOrdem(ElementoLista dado); //slide
+	int adiciona(ElementoLista dado); //nao tem codigo
+	int adicionaNoInicio(TipoInfo dado); //slide 
+	int adicionaNaPosicao(TipoInfo *dado, int posicao); //slide
+	int adicionaEmOrdem(TipoInfo dado); //slide
 //2) lauro
 	retira() //nao tem coidigo
 	retiraDoInicio(); //slide 2 formas
