@@ -1,29 +1,45 @@
-Lista*  criaLista(){
+
+
+Lista* Lista::criaLista(){
+
 	Lista *aLista;
-
-	aLista = aloque(Lista);
+	aLista = new Lista;
 	if (aLista != NULL) {
-
 		aLista->tamanho = 0;
 		aLista->dados = NULL;
 	}
-	returnaLista;
+	return &aLista;
 }
 
 
-Booleano  listaVazia(Lista *aLista)
-
-	if (aLista->tamanho = 0) {
-		return true
+bool  Lista::listaVazia(Lista *aLista)
+	if (aLista->tamanho == 0) {
+		return true;
 	}else{
 		return false;
 }
 
+int Lista::adiciona(Lista *aLista, InfoLista *dado){
 
-int  adicionaNoInicio(Lista *aLista,TipoInfo *dado){
-	
-	novo = aloque(tElemento);
-	if (novo = NULL) {
+    ElementoLista *novo = new ElementoLista();
+    //novo = cabeca;   //cabeca da Lista
+	if (novo == NULL) {
+                return ERROLISTACHEIA;
+        }
+
+    	else{
+		//for (int i = 0; i < aLista->tamanho; i++)
+        	//novo = novo -> aLista->proximo;
+		//novo -> proximo = novo;
+    		//novo -> info = dado;
+		return 1;
+	}
+}
+
+
+int Lista::adicionaNoInicio(Lista *aLista, TipoInfo *dado){
+	ElementoLista *novo = new ElementoLista();
+	if (novo == NULL) {
 		return ERROLISTACHEIA;
 	}
 	else{
@@ -36,10 +52,7 @@ int  adicionaNoInicio(Lista *aLista,TipoInfo *dado){
 }
 
 
-TipoInfo*  retiraDoInicio(Lista *aLista)
-
-{
-
+TipoInfo*  Lista::retiraDoInicio(Lista *aLista){
 	if (listaVaziaaLista) {
 		return(NULL);
 	}else{
@@ -52,12 +65,8 @@ TipoInfo*  retiraDoInicio(Lista *aLista)
 	}
 }
 
-inteiro  eliminaDoInicio(Lista *aLista)
-
-
-{
-
-	if (listaVaziaaLista) {
+inteiro  Lista::eliminaDoInicio(Lista *aLista){
+	if (listaVazia()) {
 		return ERROLISTAVAZIA;
 	}else{
 		saiu = aLista->dados;
@@ -69,7 +78,7 @@ inteiro  eliminaDoInicio(Lista *aLista)
 	}
 }
 
-int  adicionaNaPosicao(TipoInfo *dado, int posicao){
+int Lista::adicionaNaPosicao(Lista *aLista, TipoInfo *dado, int posicao){
 	if (posicao > aLista->tamanho + 1) {
 		return ERROPOSICAO;
 	}else{
@@ -93,83 +102,59 @@ int  adicionaNaPosicao(TipoInfo *dado, int posicao){
 	}
 }
 
-TipoInfo*  retiraDaPosicao(tLista *aLista, inteiro posicao)
+TipoInfo*  Lista::retiraDaPosicao(Lista *aLista, int posicao)
 {
 
-if (posicao > aLista->tamanho) {
-return(NULL);
-}else{
-if (posicao = 1) {
-return retiraDoInicioaLista();
-}else{
-anterior = aLista->dados;
-for (posicao - 2) {
-anterior = anterior->proximo;
-eliminar = anterior->proximo;
-volta = eliminar->info;
-anterior->proximo = eliminar->proximo;
-aLista->tamanho = aLista->tamanho - 1;
-delete (eliminar);
-return(volta);
-}
-}
-}
-
-
-TipoInfo*  retiraDaPosicao(tLista *aLista, inteiro posicao)
-{
-
-if (posicao > aLista->tamanho) {
-return(NULL);
-}else{
-if (posicao = 1) {
-return retiraDoInicioaLista();
-}else{
-anterior = aLista->dados;
-for (posicao - 2) {
-anterior = anterior->proximo;
-eliminar = anterior->proximo;
-volta = eliminar->info;
-anterior->proximo = eliminar->proximo;
-aLista->tamanho = aLista->tamanho - 1;
-delete (eliminar);
-return(volta);
-}
-}
+	if (posicao > aLista->tamanho) {
+		return NULL;
+	}else{
+		if (posicao = 1) {
+			return retiraDoInicioaLista();
+		}else{
+			anterior = aLista->dados;
+			for (posicao - 2) {
+				anterior = anterior->proximo;
+				eliminar = anterior->proximo;
+				volta = eliminar->info;
+				anterior->proximo = eliminar->proximo;
+				aLista->tamanho = aLista->tamanho - 1;
+				delete (eliminar);
+				return(volta);
+			}
+		}
+	}		
 }
 
-int  adicionaEmOrdem(TipoInfo *dado){
-int posicao;
 
+int  Lista::adicionaEmOrdem(Lista *aLista, TipoInfo *dado){
+	int posicao;
 	if (listaVazia()) {
 		return adicionaNoInicio(&dado);
-	}
-	else{
+	}else{
 		atual = aLista->dados;
 		posicao = 1;
 		while (atual->proximo != NULL && maior(&dado, &atual->info)){
 			atual = atual->proximo;
 			posicao = posicao + 1;
 		}
-	return adicionaNaPosicao( &dado, posicao + 1);
+		return adicionaNaPosicao( &dado, posicao + 1);
 	}
-return adicionaNaPosicao(&dado, posicao);
+	return adicionaNaPosicao(&dado, posicao);
 }
 
 
- destroiLista(tLista *aLista)
-{
-
-if (listaVaziaaLista) {
-delete  aLista;
-}else{
-atual = aLista->dados;
-while (atual != NULL) FACA
-anterior = atual;
-atual = atual->proximo;
-delete (anterior->info);
-delete (anterior);
-}
-delete  aLista;
-}
+void Lista::destroiLista(Lista *aLista){
+	
+	if (listaVazia(&aLista)) {
+	delete  aLista;
+	}else{
+		TipoInfo atual = aLista->dados;
+		while (atual != NULL){
+			TipoInfo anterior = atual;
+			atual = atual->proximo;
+			delete anterior->info;
+			delete anterior;
+		}
+		delete  aLista;
+	}
 }
