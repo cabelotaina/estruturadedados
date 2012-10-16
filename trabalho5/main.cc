@@ -1,26 +1,51 @@
-//////////////////// isso é a parte que descreve o programa principal
+#include "lista.h" //incluido lista encadeada;
+#include <iostream>
 
+using namespace std;
 
-#include listaEnc.h // o que é isso?
-
-        tLista *devedores, *credores, *listaEscolhida;
+        Lista *agenda;
         TipoInfo *dado;
-        caracter opcao;
+        char opcao;
 
-//Programa Principal
+void escreveMenu(){
+	cout << "Bem vindo a sua agenda de contatos" << endl << endl;
+	cout << "* Tecle a para adicionar;"<< endl;
+	cout << "* Tecle r para remover;" << endl;
+	cout << "* Tecle f para sair;" << endl;
+}
 
-        devedores = criaLista();
-        credores = criaLista();
+char opcao(char c){
+	cin >> c;
+	return c;
+}
+
+
+void menuInterativo(){
+
+	agenda = new Lista;
+        agenda.criaLista();
         opcao = '';
         while (opcao != 'f') {
                 escreveMenu();
                 leia(opcao);
-                CASO opcao ifJA
-                        'c': listaEscolhida = credores;
-                        'd': listaEscolhida = devedores;
-                        'i': dado = leiaInfo();
-                        adicionaNoInicio(listaEscolhida, dado);
-                { CASO
-        }
+                switch(opcao){
+                        case 'a': 
+				// codigo para adicionar;
+				//break; 
+                        case 'r': 
+				// codigo para remover; 
+				//break;
+			default:
+				cout << "opcao invalida!"<<endl;
+				//break;
+        	}
+	}
 }
+//Programa Principal
+int main(int argc, char** argv){
+	if (argc<2)
+		menuInterativo();
+	lerCasoDeTeste(argv[1]);
+}
+
 
