@@ -20,19 +20,19 @@ public:
 	Lista();
 	~Lista();
 //1) maurilio
-	int adiciona(Lista *aLista, TipoInfo dado); //implementar
-	int adicionaNoInicio(Lista *aLista, TipoInfo dado);  
+	int adiciona(Lista *aLista, TipoInfo *dado); //implementar
+	int adicionaNoInicio(Lista *aLista, TipoInfo *dado);  
 	int adicionaNaPosicao(Lista *aLista, TipoInfo *dado, int posicao); 
-	int adicionaEmOrdem(TipoInfo dado); 
+	int adicionaEmOrdem(TipoInfo *dado); 
 //2) lauro
 	int retira(Lista *aLista); //implementar
 	int retiraDoInicio(Lista *aLista); 
 	int retiraDaPosicao(Lista *aLista,int posicao); 
-	int retiraEspecifico(Lista *aLista, ElementoLista dado);
+	int retiraEspecifico(Lista *aLista, ElementoLista *dado);
 //3) fristram
 	bool listaVazia(Lista *aLista); 
-	int posicao(Lista *aLista, ElementoLista dado);// implementar
-	bool contem(Lista *aLista, ElementoLista dado); // implementar
+	int posicao(Lista *aLista, ElementoLista *dado);// implementar
+	bool contem(Lista *aLista, ElementoLista *dado); // implementar
 	Lista* criaLista(); 
 	void destroiLista(Lista *aLista);
 //4)  lauro
