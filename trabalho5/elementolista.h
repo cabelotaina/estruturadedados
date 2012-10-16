@@ -1,16 +1,10 @@
 #ifndef _ELEMENTO_LISTA_
 #define _ELEMENTO_LISTA_
+#include "tipoinfo.h"
 
 class ElementoLista{
 	ElementoLista *proximo;
 	TipoInfo *info;
-}
+};
 
-class TipoInfo{
-
-public:
-	int telefone;
-	string nome;
-
-}
 #endif

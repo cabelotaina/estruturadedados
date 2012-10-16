@@ -3,9 +3,11 @@
 #ifndef _LISTA_ENCADEADA_
 #define _LISTA_ENCADEADA_
 #include "tipoinfo.h"
+#include "elementolista.h"
 
 #define ERROLISTAVAZIA -1
 #define ERROPOSICAO -2
+
 class Lista{
 
 private:
@@ -29,8 +31,8 @@ public:
 	int retiraEspecifico(Lista *aLista, ElementoLista dado);
 //3) fristram
 	bool listaVazia(Lista *aLista); 
-	int posicao(Lista *aLista, ElementoFila dado);// implementar
-	bool contem(Lista *aLista, ElementoFila dado); // implementar
+	int posicao(Lista *aLista, ElementoLista dado);// implementar
+	bool contem(Lista *aLista, ElementoLista dado); // implementar
 	Lista* criaLista(); 
 	void destroiLista(Lista *aLista);
 //4)  lauro
@@ -42,5 +44,5 @@ public:
 //no slide tem 
 
 //main tem no slide
-}
-#enfif
+};
+#endif
