@@ -49,6 +49,9 @@ int Lista::adicionaNoInicio(Lista *aLista, TipoInfo *dado){
 
 
 TipoInfo*  Lista::retiraDoInicio(Lista *aLista){
+	ElementoLista *saiu = new ElementoLista();
+	TipoInfo *volta = new TipoInfo();
+	
 	if (listaVazia(&aLista)) {
 		return(NULL);
 	}else{
