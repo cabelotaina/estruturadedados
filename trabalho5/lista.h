@@ -9,7 +9,7 @@
 class Lista{
 
 private:
-	Lista *aLista;
+	ElementoLista *dados;
 	int tamanho;
 // colocar as variaveis 
 
@@ -18,21 +18,21 @@ public:
 	Lista();
 	~Lista();
 //1) maurilio
-	int adiciona(ElementoLista dado); //nao tem codigo
-	int adicionaNoInicio(TipoInfo dado); //slide 
-	int adicionaNaPosicao(TipoInfo *dado, int posicao); //slide
-	int adicionaEmOrdem(TipoInfo dado); //slide
+	int adiciona(Lista *aLista, TipoInfo dado); //implementar
+	int adicionaNoInicio(Lista *aLista, TipoInfo dado);  
+	int adicionaNaPosicao(Lista *aLista, TipoInfo *dado, int posicao); 
+	int adicionaEmOrdem(TipoInfo dado); 
 //2) lauro
-	retira() //nao tem coidigo
-	retiraDoInicio(); //slide 2 formas
-	retiraDaPosicao(int posicao); //slide
-	retiraEspecifico(ElementoLista dado); //nao tem no slide
+	int retira(Lista *aLista); //implementar
+	int retiraDoInicio(Lista *aLista); 
+	int retiraDaPosicao(Lista *aLista,int posicao); 
+	int retiraEspecifico(Lista *aLista, ElementoLista dado);
 //3) fristram
-	listaVazia(); //slide
-	posicao(ElementoFila dado);
-	contem(ElementoFila dado);
-	criaLista(); //slide
-	destroiLista();
+	bool listaVazia(Lista *aLista); 
+	int posicao(Lista *aLista, ElementoFila dado);// implementar
+	bool contem(Lista *aLista, ElementoFila dado); // implementar
+	Lista* criaLista(); 
+	void destroiLista(Lista *aLista);
 //4)  lauro
 //cabecalho listaenc.h
 

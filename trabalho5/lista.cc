@@ -1,3 +1,6 @@
+Lista::Lista{
+	
+}
 
 
 Lista* Lista::criaLista(){
@@ -13,28 +16,21 @@ Lista* Lista::criaLista(){
 
 
 bool  Lista::listaVazia(Lista *aLista)
-	if (aLista->tamanho == 0) {
-		return true;
-	}else{
-		return false;
+	return aLista->tamanho == 0;
 }
 
-int Lista::adiciona(Lista *aLista, InfoLista *dado){
-
-    ElementoLista *novo = new ElementoLista();
-    //novo = cabeca;   //cabeca da Lista
-	if (novo == NULL) {
+/*int Lista::adiciona(Lista *aLista, InfoLista *dado){
+    	ElementoLista *novo = new ElementoLista();
+	if (novo == NULL) 
                 return ERROLISTACHEIA;
-        }
-
     	else{
-		//for (int i = 0; i < aLista->tamanho; i++)
-        	//novo = novo -> aLista->proximo;
-		//novo -> proximo = novo;
-    		//novo -> info = dado;
+		for (int i = 0; i < aLista->tamanho; i++)
+        	novo = novo -> aLista->proximo;
+		novo -> proximo = novo;
+    		novo -> info = dado;
 		return 1;
 	}
-}
+}*/
 
 
 int Lista::adicionaNoInicio(Lista *aLista, TipoInfo *dado){
@@ -53,28 +49,15 @@ int Lista::adicionaNoInicio(Lista *aLista, TipoInfo *dado){
 
 
 TipoInfo*  Lista::retiraDoInicio(Lista *aLista){
-	if (listaVaziaaLista) {
+	if (listaVazia(&aLista)) {
 		return(NULL);
 	}else{
 		saiu = aLista->dados;
 		volta = saiu->info;
 		aLista->dados = saiu->proximo;
 		aLista->tamanho = aLista->tamanho - 1;
-		delete (saiu);
-		return(volta);
-	}
-}
-
-inteiro  Lista::eliminaDoInicio(Lista *aLista){
-	if (listaVazia()) {
-		return ERROLISTAVAZIA;
-	}else{
-		saiu = aLista->dados;
-		aLista->dados = saiu->proximo;
-		aLista->tamanho = aLista->tamanho - 1;
-		delete (saiu->info);
-		delete (saiu);
-		return(aLista->tamanho + 1);
+		delete saiu;
+		return &volta;
 	}
 }
 
@@ -97,13 +80,13 @@ int Lista::adicionaNaPosicao(Lista *aLista, TipoInfo *dado, int posicao){
 					anterior->proximo = novo;
 					aLista->tamanho = aLista->tamanho + 1;
 					return aLista->tamanho;
+				}
 			}
-		}
-	}
+		}	
+	}	
 }
 
-TipoInfo*  Lista::retiraDaPosicao(Lista *aLista, int posicao)
-{
+TipoInfo*  Lista::retiraDaPosicao(Lista *aLista, int posicao){
 
 	if (posicao > aLista->tamanho) {
 		return NULL;
@@ -118,8 +101,8 @@ TipoInfo*  Lista::retiraDaPosicao(Lista *aLista, int posicao)
 				volta = eliminar->info;
 				anterior->proximo = eliminar->proximo;
 				aLista->tamanho = aLista->tamanho - 1;
-				delete (eliminar);
-				return(volta);
+				delete eliminar;
+				return volta;
 			}
 		}
 	}		
@@ -128,7 +111,7 @@ TipoInfo*  Lista::retiraDaPosicao(Lista *aLista, int posicao)
 
 int  Lista::adicionaEmOrdem(Lista *aLista, TipoInfo *dado){
 	int posicao;
-	if (listaVazia()) {
+	if (listaVazia(&aLista)) {
 		return adicionaNoInicio(&dado);
 	}else{
 		atual = aLista->dados;
@@ -158,3 +141,42 @@ void Lista::destroiLista(Lista *aLista){
 		delete  aLista;
 	}
 }
+
+int Lista::retira(Lista *aLista){
+
+	if (listaVazia(&aLista)) {
+                return ERROLISTAVAZIA;
+        }else{
+		dado = aLista->dados;
+		// continuar
+	}
+
+
+}
+int Lista::posicao(Lista *aLista, ElementoFila dado){
+
+	ElementoLista* auxiliar = aLista;
+	
+	for (int i=1; i>aLista->tamanho;i++){ 
+		if(auxiliar == dado)
+			return i;
+		auxiliar = auxiliar->proximo;
+	}
+	return -1; //colocar dado
+
+}
+bool Lista::contem(Lista *aLista, ElementoFila dado){
+
+	        ElementoLista* auxiliar = aLista;
+
+        for (int i=1; i>aLista->tamanho;i++){
+                if(auxiliar == dado)
+                        return true;
+                auxiliar = auxiliar->proximo;
+        }
+        return false;
+
+
+}
+
+Lista::~Lista{}
