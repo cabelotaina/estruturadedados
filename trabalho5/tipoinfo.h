@@ -6,12 +6,15 @@ using namespace std;
 class TipoInfo{
 
 public:
+	TipoInfo();
+	~TipoInfo();
+	
         int telefone;
         string nome;
 
-      bool maior(string *dado);
-      bool menor(string *dado);
-      bool igual(string *dado);
+      bool maior(TipoInfo *dado);
+      bool menor(TipoInfo *dado);
+      bool igual(TipoInfo *dado);
 	
 
 
