@@ -79,10 +79,10 @@ int Lista::adicionaNaPosicao(Lista *aLista, TipoInfo *dado, int posicao){
 			}else{
 				ElementoLista *anterior;
 				anterior = aLista->dados;
-				for (posicao - 2) {
+				for (int i =0; i < posicao - 2; i++) {
 					anterior = anterior->proximo;
 					novo->proximo = anterior->proximo;
-					novo->info = info;
+					novo->info = anterior->info;
 					anterior->proximo = novo;
 					aLista->tamanho = aLista->tamanho + 1;
 					return aLista->tamanho;
@@ -92,23 +92,25 @@ int Lista::adicionaNaPosicao(Lista *aLista, TipoInfo *dado, int posicao){
 	}	
 }
 
-TipoInfo*  Lista::retiraDaPosicao(Lista *aLista, int posicao){
+int  Lista::retiraDaPosicao(Lista *aLista, int posicao){
 
 	if (posicao > aLista->tamanho) {
-		return NULL;
+		return ERROPOSICAO;
 	}else{
 		if (posicao = 1) {
-			return retiraDoInicioaLista();
+			retiraDoInicio(aLista);
+			return 1;
 		}else{
-			anterior = aLista->dados;
-			for (posicao - 2) {
+			ElementoLista* anterior = aLista->dados;
+			for (int i = 0; i < posicao - 2; i++) {
 				anterior = anterior->proximo;
-				eliminar = anterior->proximo;
-				volta = eliminar->info;
+				ElementoLista* eliminar = anterior->proximo;
+				TipoInfo* volta = eliminar->info;
 				anterior->proximo = eliminar->proximo;
 				aLista->tamanho = aLista->tamanho - 1;
 				delete eliminar;
-				return volta;
+				//return volta;
+				return 1;
 			}
 		}
 	}		
