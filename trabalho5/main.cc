@@ -1,6 +1,7 @@
 #include "lista.h" //incluido lista encadeada;
 #include <iostream>
 
+
 using namespace std;
 
         Lista *agenda;
@@ -14,7 +15,7 @@ void escreveMenu(){
 	cout << "* Tecle f para sair;" << endl;
 }
 
-char opcao(char c){
+char leia(char c){
 	cin >> c;
 	return c;
 }
@@ -22,30 +23,35 @@ char opcao(char c){
 
 void menuInterativo(){
 
-	agenda = new Lista;
-        agenda.criaLista();
-        opcao = '';
+//        agenda = criaLista();
+        //opcao = '';
         while (opcao != 'f') {
                 escreveMenu();
-                leia(opcao);
+                opcao = leia(opcao);
                 switch(opcao){
                         case 'a': 
 				// codigo para adicionar;
-				//break; 
+				break; 
                         case 'r': 
 				// codigo para remover; 
-				//break;
+				break;
+			case: 'm':
+				
+				break;
 			default:
 				cout << "opcao invalida!"<<endl;
 				//break;
         	}
 	}
 }
-//Programa Principal
+
+void lerCasoDeTeste(char* arquivo ){
+
+
+}
 int main(int argc, char** argv){
 	if (argc<2)
 		menuInterativo();
 	lerCasoDeTeste(argv[1]);
 }
-
 
