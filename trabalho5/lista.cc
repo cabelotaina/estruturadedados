@@ -21,18 +21,17 @@ bool  Lista::listaVazia(Lista *aLista){
 	return (aLista->tamanho>0);
 }
 
-/*int Lista::adiciona(Lista *aLista, InfoLista *dado){
-    	ElementoLista *novo = new ElementoLista();
+int Lista::adiciona(Lista *aLista, TipoInfo *dado){
+    	ElementoLista *novo;
 	if (novo == NULL) 
                 return ERROLISTACHEIA;
     	else{
-		for (int i = 0; i < aLista->tamanho; i++)
-        	novo = novo -> aLista->proximo;
-		novo -> proximo = novo;
+        	novo ->proximo = aLista->dados;
+		aLista->dados=novo;
     		novo -> info = dado;
 		return 1;
 	}
-}*/
+}
 
 
 int Lista::adicionaNoInicio(Lista *aLista, TipoInfo *dado){
