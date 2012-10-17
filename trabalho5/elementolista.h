@@ -3,6 +3,7 @@
 #include "tipoinfo.h"
 
 class ElementoLista{
+public:
 	ElementoLista *proximo;
 	TipoInfo *info;
 };

@@ -71,7 +71,7 @@ int Lista::adicionaNaPosicao(Lista *aLista, TipoInfo *dado, int posicao){
 		return ERROPOSICAO;
 	}else{
 		if (posicao = 1) {
-			return(adicionaNoInicio(&dado));
+			return(adicionaNoInicio(dado));
 		}else{
 			novo = new TipoInfo;
 			if (novo = NULL) {
@@ -116,29 +116,29 @@ TipoInfo*  Lista::retiraDaPosicao(Lista *aLista, int posicao){
 
 int  Lista::adicionaEmOrdem(Lista *aLista, TipoInfo *dado){
 	int posicao;
-	if (listaVazia(&aLista)) {
-		return adicionaNoInicio(&dado);
+	if (listaVazia(aLista)) {
+		return adicionaNoInicio(aLista, dado);
 	}else{
-		atual = aLista->dados;
+		ElementoLista *atual = aLista->dados;
 		posicao = 1;
-		while (atual->proximo != NULL && maior(&dado, &atual->info)){
+		while (atual->proximo != NULL && dado.maior(atual->info)){ //maior(&dado, &atual->info)
 			atual = atual->proximo;
 			posicao = posicao + 1;
 		}
-		return adicionaNaPosicao( &dado, posicao + 1);
+		return adicionaNaPosicao( aLista, dado, posicao + 1);
 	}
-	return adicionaNaPosicao(&dado, posicao);
+	return adicionaNaPosicao(aLista, dado, posicao);
 }
 
 
 void Lista::destroiLista(Lista *aLista){
 	
-	if (listaVazia(&aLista)) {
+	if (listaVazia(aLista)) {
 	delete  aLista;
 	}else{
-		TipoInfo atual = aLista->dados;
+		ElementoLista *atual = aLista->dados;
 		while (atual != NULL){
-			TipoInfo anterior = atual;
+			ElementoLista *anterior = atual;
 			atual = atual->proximo;
 			delete anterior->info;
 			delete anterior;
@@ -149,18 +149,18 @@ void Lista::destroiLista(Lista *aLista){
 
 int Lista::retira(Lista *aLista){
 
-	if (listaVazia(&aLista)) {
+	if (listaVazia(aLista)) {
                 return ERROLISTAVAZIA;
         }else{
-		dado = aLista->dados;
+		ElementoLista *dado = aLista->dados;
 		// continuar
 	}
 
 
 }
-int Lista::posicao(Lista *aLista, ElementoFila dado){
+int Lista::posicao(Lista *aLista, ElementoLista *dado){
 
-	ElementoLista* auxiliar = aLista;
+	ElementoLista* auxiliar = aLista->dados;
 	
 	for (int i=1; i>aLista->tamanho;i++){ 
 		if(auxiliar == dado)
@@ -170,9 +170,9 @@ int Lista::posicao(Lista *aLista, ElementoFila dado){
 	return -1; //colocar dado
 
 }
-bool Lista::contem(Lista *aLista, ElementoFila dado){
+bool Lista::contem(Lista *aLista, ElementoLista *dado){
 
-	        ElementoLista* auxiliar = aLista;
+	        ElementoLista* auxiliar = aLista->dados;
 
         for (int i=1; i>aLista->tamanho;i++){
                 if(auxiliar == dado)

@@ -23,7 +23,7 @@ public:
 	int adiciona(Lista *aLista, TipoInfo *dado); //implementar
 	int adicionaNoInicio(Lista *aLista, TipoInfo *dado);  
 	int adicionaNaPosicao(Lista *aLista, TipoInfo *dado, int posicao); 
-	int adicionaEmOrdem(TipoInfo *dado); 
+	int adicionaEmOrdem(Lista *aLista, TipoInfo *dado); 
 //2) lauro
 	int retira(Lista *aLista); //implementar
 	int retiraDoInicio(Lista *aLista); 
