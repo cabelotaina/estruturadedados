@@ -7,7 +7,7 @@
 
 #define ERROLISTAVAZIA -1
 #define ERROPOSICAO -2
-
+#define ERROLISTACHEIA -3
 class Lista{
 
 private:
@@ -26,7 +26,7 @@ public:
 	int adicionaEmOrdem(Lista *aLista, TipoInfo *dado); 
 //2) lauro
 	int retira(Lista *aLista); //implementar
-	int retiraDoInicio(Lista *aLista); 
+	TipoInfo* retiraDoInicio(Lista *aLista); 
 	int retiraDaPosicao(Lista *aLista,int posicao); 
 	int retiraEspecifico(Lista *aLista, ElementoLista *dado);
 //3) fristram

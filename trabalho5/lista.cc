@@ -1,6 +1,6 @@
 #include "lista.h"
 
-Lista::Lista{
+Lista::Lista(){
 	
 }
 
@@ -13,12 +13,12 @@ Lista* Lista::criaLista(){
 		aLista->tamanho = 0;
 		aLista->dados = NULL;
 	}
-	return &aLista;
+	return aLista;
 }
 
 
-bool  Lista::listaVazia(Lista *aLista)
-	return aLista->tamanho == 0;
+bool  Lista::listaVazia(Lista *aLista){
+	return (aLista->tamanho>0);
 }
 
 /*int Lista::adiciona(Lista *aLista, InfoLista *dado){
@@ -54,7 +54,7 @@ TipoInfo*  Lista::retiraDoInicio(Lista *aLista){
 	ElementoLista *saiu = new ElementoLista();
 	TipoInfo *volta = new TipoInfo();
 	
-	if (listaVazia(&aLista)) {
+	if (listaVazia(aLista)) {
 		return(NULL);
 	}else{
 		saiu = aLista->dados;
@@ -62,7 +62,7 @@ TipoInfo*  Lista::retiraDoInicio(Lista *aLista){
 		aLista->dados = saiu->proximo;
 		aLista->tamanho = aLista->tamanho - 1;
 		delete saiu;
-		return &volta;
+		return volta;
 	}
 }
 
@@ -71,12 +71,13 @@ int Lista::adicionaNaPosicao(Lista *aLista, TipoInfo *dado, int posicao){
 		return ERROPOSICAO;
 	}else{
 		if (posicao = 1) {
-			return(adicionaNoInicio(dado));
+			return adicionaNoInicio(aLista, dado);
 		}else{
-			novo = new TipoInfo;
+			ElementoLista *novo;
 			if (novo = NULL) {
 				return ERROLISTACHEIA;
 			}else{
+				ElementoLista *anterior;
 				anterior = aLista->dados;
 				for (posicao - 2) {
 					anterior = anterior->proximo;
@@ -121,7 +122,7 @@ int  Lista::adicionaEmOrdem(Lista *aLista, TipoInfo *dado){
 	}else{
 		ElementoLista *atual = aLista->dados;
 		posicao = 1;
-		while (atual->proximo != NULL && dado.maior(atual->info)){ //maior(&dado, &atual->info)
+		while (atual->proximo != NULL && dado->maior(atual->info)){ //maior(&dado, &atual->info)
 			atual = atual->proximo;
 			posicao = posicao + 1;
 		}
@@ -184,4 +185,4 @@ bool Lista::contem(Lista *aLista, ElementoLista *dado){
 
 }
 
-Lista::~Lista{}
+Lista::~Lista(){}
