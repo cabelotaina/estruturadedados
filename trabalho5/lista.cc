@@ -151,12 +151,19 @@ void Lista::destroiLista(Lista *aLista){
 
 int Lista::retira(Lista *aLista){
 
-	if (listaVazia(aLista)) {
+ElementoLista *saiu = new ElementoLista();
+        TipoInfo *volta = new TipoInfo();
+
+        if (listaVazia(aLista)) {
                 return ERROLISTAVAZIA;
         }else{
-		ElementoLista *dado = aLista->dados;
-		// continuar
-	}
+                saiu = aLista->dados;
+                volta = saiu->info;
+                aLista->dados = saiu->proximo;
+                aLista->tamanho = aLista->tamanho - 1;
+                delete saiu;
+                return 1;
+        }
 
 
 }
