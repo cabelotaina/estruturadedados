@@ -28,14 +28,14 @@ fi
 if [ -z "$MESSAGE" ]
 then
 	echo "* "
-	echo "* Erro ao enviar e-mail (MESSAGE nao definido pelo comando 'git diff')."
+	echo "* Erro ao enviar e-mail (MESSAGE nao definido pelo comando 'git show')."
 	echo "* * *"
 	exit 1
 fi
 if [ -z "$AUTHOR" ]
 then
 	echo "* "
-	echo "* Erro ao enviar e-mail (AUTHOR nao definido pelo comando 'git diff')."
+	echo "* Erro ao enviar e-mail (AUTHOR nao definido pelo comando 'git show')."
 	echo "* * *"
 	exit 1
 fi
@@ -65,7 +65,7 @@ do
 done
 
 echo "* Executando 'git commit -m \"$ENTRADA\"'"
-git commit -m "$ENTRADA"
+git commit -m "$ENTRADA" .
 if [ $? -ne 0 ]
 then
 	echo "* "
@@ -89,8 +89,8 @@ echo "* * *"
 
 echo "* * *"
 echo "* Enviando e-mail.."
-MESSAGE="$(git diff)"
-AUTHOR="$(git diff | grep Author | cut -f2 -d":" | cut -f1 -d"<" | tr -d ' ')"
+MESSAGE="$(git show)"
+AUTHOR="$(git show | grep Author | cut -f2 -d":" | cut -f1 -d"<" | tr -d ' ')"
 SUBJECT="$DATE - $AUTHOR - $(git rev-parse HEAD)"
 
 do_sendEmail
