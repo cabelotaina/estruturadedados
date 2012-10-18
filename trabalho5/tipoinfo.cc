@@ -1,6 +1,6 @@
 #include "tipoinfo.h"
 
-//TipoInfo::TipoInfo(){}
+TipoInfo::TipoInfo(){}
 
 bool TipoInfo::igual(TipoInfo *dado){
 	return nome == dado->nome;
@@ -11,3 +11,5 @@ bool TipoInfo::menor(TipoInfo *dado){
 bool TipoInfo::maior(TipoInfo *dado){
 	nome > dado->nome;
 }
+
+TipoInfo::~TipoInfo(){}

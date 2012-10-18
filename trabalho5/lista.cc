@@ -1,4 +1,5 @@
 #include "lista.h"
+#include "tipoinfo.h"
 
 Lista::Lista(){
 	
@@ -22,20 +23,20 @@ bool  Lista::listaVazia(Lista *aLista){
 }
 
 int Lista::adiciona(Lista *aLista, TipoInfo *dado){
-    	ElementoLista *novo;
+    	ElementoLista *novo = new ElementoLista;
 	if (novo == NULL) 
                 return ERROLISTACHEIA;
     	else{
-        	novo ->proximo = aLista->dados;
-		aLista->dados=novo;
-    		novo -> info = dado;
+        	novo->proximo = aLista->dados;
+		aLista->dados = novo;
+    		novo->info = dado;
 		return 1;
 	}
 }
 
 
 int Lista::adicionaNoInicio(Lista *aLista, TipoInfo *dado){
-	ElementoLista *novo = new ElementoLista();
+	ElementoLista *novo = new ElementoLista;
 	if (novo == NULL) {
 		return ERROLISTACHEIA;
 	}
@@ -72,7 +73,7 @@ int Lista::adicionaNaPosicao(Lista *aLista, TipoInfo *dado, int posicao){
 		if (posicao = 1) {
 			return adicionaNoInicio(aLista, dado);
 		}else{
-			ElementoLista *novo;
+			ElementoLista *novo = new ElementoLista;
 			if (novo = NULL) {
 				return ERROLISTACHEIA;
 			}else{
@@ -108,7 +109,6 @@ int  Lista::retiraDaPosicao(Lista *aLista, int posicao){
 				anterior->proximo = eliminar->proximo;
 				aLista->tamanho = aLista->tamanho - 1;
 				delete eliminar;
-				//return volta;
 				return 1;
 			}
 		}
