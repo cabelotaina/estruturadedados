@@ -1,5 +1,24 @@
-// Neste arquivo esta a divisao do trabalho para Maurilio, Fristram e Lauro
-
+// FILE: lista.h
+// TITLE: Lista
+// SUBMITTED BY: Maurilio Atila Carvalho de Santana, Fristtram Helder Fernandes e Lauro Costa Borges
+// Todo o código é meu, excepto quando creditado a outros.
+// FOR COURSE: INE5408
+// DUE DATE: 16 de Outubro 2012
+//
+// PURPOSE:
+// Funciona como uma interface da lista.cc
+//
+// METODOS:
+// 
+// f1
+// 
+// s
+// 
+//
+// f2
+//
+//
+// s
 #ifndef _LISTA_ENCADEADA_
 #define _LISTA_ENCADEADA_
 #include "tipoinfo.h"
