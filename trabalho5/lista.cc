@@ -19,7 +19,7 @@ Lista* Lista::criaLista(){
 
 
 bool  Lista::listaVazia(Lista *aLista){
-	return (aLista->tamanho>0);
+	return (aLista->tamanho==0);
 }
 
 int Lista::adiciona(Lista *aLista, TipoInfo *dado){

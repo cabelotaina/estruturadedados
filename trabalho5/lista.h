@@ -10,11 +10,10 @@
 #define ERROLISTACHEIA -3
 class Lista{
 
-private:
+public:
 	ElementoLista *dados;
 	int tamanho;
 
-public:
 
 Lista();
 ~Lista();
