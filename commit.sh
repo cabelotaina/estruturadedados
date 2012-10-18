@@ -6,7 +6,7 @@ EMAIL_FROM="git.ine5408@gmail.com"
 USERNAME=git.ine5408
 PASSWORD=quebragalho0
 EMAIL_TO="nhelauro@gmail.com cabelotaina@gmail.com fristtram@gmail.com"
-DATE=`date +%Y-%m-%d %H:%M:%S`
+DATE=`date "+%Y-%m-%d %H:%M:%S"`
 ############################################ FUNCOES EMAIL
 function sendEmail_exists() {
 which sendEmail 1>/dev/null 2>&1
