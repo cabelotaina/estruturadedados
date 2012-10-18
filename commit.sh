@@ -90,7 +90,7 @@ echo "* * *"
 echo "* * *"
 echo "* Enviando e-mail.."
 MESSAGE="$(git show)"
-AUTHOR="$(git show | grep Author | cut -f2 -d":" | cut -f1 -d"<" | tr -d ' ')"
+AUTHOR="$(git show | grep Author | cut -f2 -d":" | cut -f1 -d"<")"
 SUBJECT="$DATE - $AUTHOR - $(git rev-parse HEAD)"
 
 do_sendEmail
