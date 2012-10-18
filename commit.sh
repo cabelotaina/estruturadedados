@@ -65,6 +65,7 @@ do
 done
 
 echo "* Executando 'git commit -m \"$ENTRADA\"'"
+git commit -m "$ENTRADA"
 if [ $? -ne 0 ]
 then
 	echo "* "
@@ -74,6 +75,7 @@ then
 fi
 
 echo "* Executando 'git push origin master'"
+git push origin master
 if [ $? -ne 0 ] 
 then
         echo "* "
