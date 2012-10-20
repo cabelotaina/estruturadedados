@@ -40,7 +40,7 @@ int Fila::adiciona(Fila *aFila, TipoInfo *dado){
 	}
 }
 
-TipoInfo*  Fila::retiraDoInicio(Fila *aFila){
+TipoInfo*  Fila::retira(Fila *aFila){
         ElementoFila *saiu = new ElementoFila();
         TipoInfo *volta = new TipoInfo();
 

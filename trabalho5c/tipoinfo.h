@@ -9,8 +9,7 @@ class TipoInfo{
 public:
 	string nome;
 	int telefone;
-	time_t data;// = time(0);
-	//char* data = ctime(aux);
+	time_t data;
 	string computador;
 	double valor;
 

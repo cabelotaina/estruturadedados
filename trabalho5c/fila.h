@@ -17,8 +17,7 @@ public:
 Fila();
 ~Fila();
 int adiciona(Fila *aFila, TipoInfo *dado);
-int retira(Fila *aFila); 
-TipoInfo* retiraDoInicio(Fila *aFila); 
+TipoInfo* retira(Fila *aFila); 
 bool filaVazia(Fila *aFila); 
 Fila* criaFila(); 
 void destroiFila(Fila *aFila);
