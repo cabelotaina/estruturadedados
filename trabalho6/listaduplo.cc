@@ -193,4 +193,4 @@ bool ListaDuplo::contemDuplo(ListaDuplo *aLista, ElementoListaDuplo *dado){
 
 }
 
-ListaDuplo::~ListaDuplo(){}
+//ListaDuplo::~ListaDuplo(){}
