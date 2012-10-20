@@ -1,14 +1,19 @@
-#ifndef _LISTA_ENCADEADA_
-#define _LISTA_ENCADEADA_
+#ifndef _LISTA_DUPLO_ENCADEADA_
+#define _LISTA_DUPLO_ENCADEADA_
 #include "cidade.h"
 #include "elementolistaduplo.h"
 
 #define ERROLISTAVAZIA -1
 #define ERROPOSICAO -2
 #define ERROLISTACHEIA -3
+
 class ListaDuplo{
 
-public:
+public: 
+	int numero_onibus;
+	string linha;
+	ListaDuplamenteEncadeada *linha;
+	ListaEncadeada *proximo;
 	ElementoListaDuplo *dados;
 	int tamanho;
 
