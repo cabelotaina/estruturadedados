@@ -10,10 +10,6 @@
 class ListaDuplo{
 
 public: 
-	int numero_onibus;
-	string linha;
-	ListaDuplamenteEncadeada *linha;
-	ListaEncadeada *proximo;
 	ElementoListaDuplo *dados;
 	int tamanho;
 
@@ -25,9 +21,9 @@ int adicionaNoInicioDuplo(ListaDuplo *aLista, Cidade *dado);
 int adicionaNaPosicaoDuplo(ListaDuplo *aLista, Cidade *dado, int posicao); 
 int adicionaEmOrdemDuplo(ListaDuplo *aLista, Cidade *dado); 
 int retiraDuplo(ListaDuplo *aLista); 
-Cidade* retiraDoInicioDuplo(ListaDuplo *aLista); 
+int retiraDoInicioDuplo(ListaDuplo *aLista); 
 int retiraDaPosicaoDuplo(ListaDuplo *aLista,int posicao); 
-int retiraEspecificoDuplo(ListaDuplo *aLista, ElementoListaDuplo *dado);
+int retiraEspecificoDuplo(ListaDuplo *aLista, Cidade *dado);
 bool listaVaziaDuplo(ListaDuplo *aLista); 
 int posicaoDuplo(ListaDuplo *aLista, ElementoListaDuplo *dado);
 bool contemDuplo(ListaDuplo *aLista, ElementoListaDuplo *dado);
