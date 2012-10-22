@@ -2,9 +2,9 @@
 #define _ELEMENTO_LISTA_
 #include "tipoinfo.h"
 
-class ElementoLista{
+class ElementoPilha{
 public:
-	ElementoLista *proximo;
+	ElementoPilha *proximo;
 	TipoInfo *info;
 };
 

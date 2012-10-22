@@ -3,32 +3,25 @@
 #ifndef _LISTA_ENCADEADA_
 #define _LISTA_ENCADEADA_
 #include "tipoinfo.h"
-#include "elementolista.h"
+#include "elementopilha.h"
 
 #define ERROLISTAVAZIA -1
 #define ERROPOSICAO -2
 #define ERROLISTACHEIA -3
-class Lista{
+class Pilha{
 
 public:
-	ElementoLista *dados;
+	ElementoPilha *dados;
 	int tamanho;
 
 
-Lista();
-~Lista();
-int adiciona(Lista *aLista, TipoInfo *dado);
-int adicionaNoInicio(Lista *aLista, TipoInfo *dado);
-int adicionaNaPosicao(Lista *aLista, TipoInfo *dado, int posicao); 
-int adicionaEmOrdem(Lista *aLista, TipoInfo *dado); 
-int retira(Lista *aLista); 
-TipoInfo* retiraDoInicio(Lista *aLista); 
-int retiraDaPosicao(Lista *aLista,int posicao); 
-int retiraEspecifico(Lista *aLista, ElementoLista *dado);
-bool listaVazia(Lista *aLista); 
-int posicao(Lista *aLista, ElementoLista *dado);
-bool contem(Lista *aLista, ElementoLista *dado);
-Lista* criaLista(); 
-void destroiLista(Lista *aLista);
+Pilha();
+~Pilha();
+int adiciona(Pilha *aPilha, TipoInfo *dado);
+TipoInfo* retira(Pilha *aPilha); 
+Pilha* criaPilha(); 
+void destroiPilha(Pilha *aPilha);
+bool pilhaVazia(Pilha *aPilha);
+int topo(Pilha *aPilha);
 };
 #endif
