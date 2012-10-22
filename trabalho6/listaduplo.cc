@@ -31,7 +31,7 @@ int ListaDuplo::adicionaDuplo(ListaDuplo *aLista, Cidade *dado){ //implementado
 		novo->proximo = aLista->dados->proximo;
 		if(novo->anterior!=NULL)
 			novo->proximo->anterior = novo;
-    		novo->info = dado;
+    		novo->parada = dado;
 		return 1;
 	}
 }
@@ -44,7 +44,7 @@ int ListaDuplo::adicionaNoInicioDuplo(ListaDuplo *aLista, Cidade *dado){
 	}
 	else{
 		novo->proximo = aLista->dados;
-		novo->info = dado;
+		novo->parada = dado;
 		aLista->dados = novo;
 		if(novo->anterior!=NULL)
 			novo->proximo->anterior = novo;
@@ -62,7 +62,7 @@ int  ListaDuplo::retiraDoInicioDuplo(ListaDuplo *aLista){
 		return ERROLISTAVAZIA;
 	}else{
 		saiu = aLista->dados;
-		volta = saiu->info;
+		volta = saiu->parada;
 		aLista->dados = saiu->proximo;
 		if(aLista->dados!=NULL)
 			aLista->dados->anterior = NULL;
@@ -90,7 +90,7 @@ int ListaDuplo::adicionaNaPosicaoDuplo(ListaDuplo *aLista, Cidade *dado, int pos
 					novo->proximo = anterior->proximo;
 					if(novo->proximo!=NULL)
 						novo->proximo->anterior = novo;
-					novo->info = anterior->info;
+					novo->parada = anterior->parada;
 					anterior->proximo = novo;
 					novo->anterior=anterior;
 					aLista->tamanho = aLista->tamanho + 1;
@@ -113,7 +113,7 @@ int  ListaDuplo::retiraDaPosicaoDuplo(ListaDuplo *aLista, int posicao){
 			for (int i = 0; i < posicao - 2; i++) {
 				anterior = anterior->proximo;
 				ElementoListaDuplo* eliminar = anterior->proximo;
-				Cidade* volta = eliminar->info;
+				Cidade* volta = eliminar->parada;
 				anterior->proximo = eliminar->proximo;
 				if(eliminar->proximo != NULL)
 					eliminar->proximo->anterior = anterior;
@@ -133,11 +133,11 @@ int  ListaDuplo::adicionaEmOrdemDuplo(ListaDuplo *aLista, Cidade *dado){
 	}else{
 		ElementoListaDuplo *atual = aLista->dados;
 		posicao = 1;
-		while (atual->proximo != NULL && dado->maior(atual->info)){
+		while (atual->proximo != NULL && dado->maior(atual->parada)){
 			atual = atual->proximo;
 			posicao = posicao + 1;
 		}
-		if(dado->maior(atual->info))
+		if(dado->maior(atual->parada))
 			return adicionaNaPosicaoDuplo( aLista, dado, posicao + 1);
 	}
 	return adicionaNaPosicaoDuplo(aLista, dado, posicao);
@@ -153,7 +153,7 @@ void ListaDuplo::destroiListaDuplo(ListaDuplo *aLista){ //Nao é necessario impl
 		while (atual != NULL){
 			ElementoListaDuplo *anterior = atual;
 			atual = atual->proximo;
-			delete anterior->info;
+			delete anterior->parada;
 			delete anterior;
 		}
 		delete  aLista;
@@ -169,7 +169,7 @@ ElementoListaDuplo *saiu = new ElementoListaDuplo();
                 return ERROLISTAVAZIA;
         }else{
                 saiu = aLista->dados;
-                volta = saiu->info;
+                volta = saiu->parada;
                 aLista->dados = saiu->proximo;
 		aLista->dados->anterior=NULL;
                 aLista->tamanho = aLista->tamanho - 1;
@@ -207,7 +207,7 @@ bool ListaDuplo::contemDuplo(ListaDuplo *aLista, ElementoListaDuplo *dado){
 
 int ListaDuplo::retiraEspecificoDuplo(ListaDuplo *aLista, Cidade *dado){//implementado
 	ElementoListaDuplo *auxiliar;
-	auxiliar->info=dado;	
+	auxiliar->parada=dado;	
 	if(!contemDuplo(aLista, auxiliar))
 		return -1;
 	else{
@@ -215,5 +215,26 @@ int ListaDuplo::retiraEspecificoDuplo(ListaDuplo *aLista, Cidade *dado){//implem
 	}
 
 }
+
+/*int ListaDuplo::busque(string* origem, string* destino, int horario){
+		return -1;
+        bool o,d;
+        while(aLista-proximo!=NULL){
+                ListaDuplo *auxiliar =  aLista->proximo;
+		
+		if( auxiliar->parada->nome == origem)
+			o = true;			
+		if( auxiliar->parada->nome == destino)
+			d=true;
+		if( o && d || auxiliar->parada->h1 <= horario)
+			return auxiliar->parada->h1;
+		if(o && d || auxiliar->parada->h2 <= horario)
+			return auxiliar->parada->h2;
+        }
+
+		return -1;
+
+}*/
+
 
 ListaDuplo::~ListaDuplo(){}

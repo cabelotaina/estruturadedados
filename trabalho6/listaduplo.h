@@ -2,11 +2,14 @@
 #define _LISTA_DUPLO_ENCADEADA_
 #include "cidade.h"
 #include "elementolistaduplo.h"
+ #include <iostream>
+ #include <cstdlib> // necessário para atoi
+ #include <cstring>
 
 #define ERROLISTAVAZIA -1
 #define ERROPOSICAO -2
 #define ERROLISTACHEIA -3
-
+using namespace std;
 class ListaDuplo{
 
 public: 
@@ -29,5 +32,6 @@ int posicaoDuplo(ListaDuplo *aLista, ElementoListaDuplo *dado);
 bool contemDuplo(ListaDuplo *aLista, ElementoListaDuplo *dado);
 ListaDuplo* criaListaDuplo(); 
 void destroiListaDuplo(ListaDuplo *aLista);
+//int busque(string* origem, string* destino, int horario){
 };
 #endif

@@ -6,7 +6,7 @@ class ElementoListaDuplo{
 public:
 	ElementoListaDuplo *proximo;
 	ElementoListaDuplo *anterior;
-	Cidade *info;
+	Cidade *parada;
 };
 
 #endif

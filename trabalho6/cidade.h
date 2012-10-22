@@ -11,6 +11,8 @@ public:
 	
         string nome;
         string caracteristica;
+	int h1;
+	int h2;
 
       bool maior(Cidade *dado);
       bool menor(Cidade *dado);
