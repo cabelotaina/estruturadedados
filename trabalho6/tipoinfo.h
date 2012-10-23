@@ -7,12 +7,9 @@ using namespace std;
 
 class TipoInfo{
 public:
-	string nome;
-	int telefone;
-	time_t data;
-	string computador;
-	int valor;
-
+	ListaDuplo *itinerario;
+	string empresa;
+	int rota;
 
 };
 #endif

@@ -1,0 +1,17 @@
+Dentro do arquivo ROTAS vocês encontram a especificação das rotas para serem carregadas pelo seu programa.
+O Caso 1 (o único para esse trabalho) também inclui as rotas e faz algumas pesquisas.
+O programa de vocês precisará ter um menu interativo, então vocês podem incluir as rotas especificadas no arquivo ROTAS
+no começo da execução para que o usuário já tenha algumas rotas sobre as quais possa fazer consultas.
+Existem apenas dois comandos para este trabalho:
+ROTA <ID da rota> <Nome da empresa> <Número de cidades na rota>
+e
+BUSCAR_ROTA 
+Cada cidade em uma rota é especificada em três linhas, com o seguinte formato:
+Nome da cidade
+Horário de chegada
+Horário de partida
+
+Cada BUSCAR_ROTA é seguido também por três linhas, da seguinte maneira:
+Nome da cidade origem
+Nome da cidade destino
+Horário desejado
