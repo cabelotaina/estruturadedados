@@ -2,6 +2,8 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <stdio.h>
+#include <string.h>
 
 using namespace std;
 //variaveis globais
@@ -12,7 +14,7 @@ using namespace std;
         TipoInfo *dado;
         char opcao;
 	int x = 0;
-	time_t base;
+	time_t base=time(0);
 //escreva na tela as opçoes do menu principal
 void escreveMenu(){
 	cout << "Bem vindo a sua sistema de contatos" << endl << endl;
@@ -119,16 +121,21 @@ void lerCasoDeTeste(char* arquivo ){
 			s >> n;
 			for (int i = 0 ; i < n ; i++) {
 				dado = new TipoInfo;
-				stringstream stream(line);	
 				file.getline(line,40);
 				dado->nome = line; 
+				//strcpy(dado->nome,line);
 				file.getline(line,40);
+				stringstream stream(line);	
 				stream >> telefone;
+				//delete stream;
+				dado->telefone = telefone;
 				file.getline(line,40);
 				dado->computador = line; 
 				file.getline(line,40);
+				stream << line;
 				stream >> valor;
-				dado->telefone = telefone;
+				dado->valor=valor;
+				dado->data=base;
 								
 				sistema->adiciona(sistema,dado);
 			}
@@ -137,7 +144,9 @@ void lerCasoDeTeste(char* arquivo ){
 			imprime();
 		}
 		 if(command == "REMOVER"){
-		 	sistema->retira(sistema);	
+			
+		 	sistema->retira(sistema);
+			 base = base + (14*24);
                 }
 	}
 

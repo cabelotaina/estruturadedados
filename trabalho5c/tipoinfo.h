@@ -11,7 +11,7 @@ public:
 	int telefone;
 	time_t data;
 	string computador;
-	double valor;
+	int valor;
 
 
 };
