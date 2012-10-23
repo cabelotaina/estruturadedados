@@ -16,6 +16,7 @@ c = c->criaPilha();
 cout << "Escreva a quantidade de peças" <<endl;
 cin >> n;
 a->tamanho=n;
+falta encher a pilha a
 if (n%2==0){
 	while(c->tamanho!=n){
 		if(a->topo(a) > b->topo(a))

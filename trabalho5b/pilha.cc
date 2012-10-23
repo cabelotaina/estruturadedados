@@ -57,6 +57,10 @@ TipoInfo*  Pilha::retira(Pilha *aPilha){
 
 int Pilha::topo(Pilha *aPilha){
 
+	if(pilhaVazia(aPilha)) {
+		return 0;
+	}
+
 	ElementoPilha *auxiliar = aPilha->dados;
 	return auxiliar->proximo->info->disco;
 
