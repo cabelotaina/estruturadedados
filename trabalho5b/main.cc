@@ -1,4 +1,5 @@
 #include "pilha.h"
+#include "tipoinfo.h"
 #include <iostream>
 
 using namespace std;
@@ -7,7 +8,7 @@ int main(void){
 
 
 Pilha *a,*b,*c;
-int n;
+int n, i;
 
 a = a->criaPilha();
 b = b->criaPilha();
@@ -16,7 +17,16 @@ c = c->criaPilha();
 cout << "Escreva a quantidade de peças" <<endl;
 cin >> n;
 a->tamanho=n;
-falta encher a pilha a
+--
+parei aqui
+
+funcao adiciona ta adicionando no lugar errado, instanciando dentro da funcao, e nao fora
+
+for(i=0;i<n;i++) {
+	a->adiciona(a, );
+}
+
+--
 if (n%2==0){
 	while(c->tamanho!=n){
 		if(a->topo(a) > b->topo(a))

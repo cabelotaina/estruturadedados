@@ -6,9 +6,6 @@ using namespace std;
 class TipoInfo{
 
 public:
-	
         int disco;
-
-
 };
 #endif
