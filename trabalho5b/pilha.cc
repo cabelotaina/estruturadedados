@@ -24,17 +24,21 @@ bool  Pilha::pilhaVazia(Pilha *aPilha){
 
 
 
-int Pilha::adiciona(Pilha *aPilha, TipoInfo *dado){
-	ElementoPilha *novo = new ElementoPilha;
-	if (novo == NULL) {
+int Pilha::adiciona(Pilha *aPilha, ElementoPilha *e, TipoInfo *dado){
+	ElementoFila *aux;
+
+	if (aPilha->tamanho == aPilha->topo(aPilha)) {
 		return ERROLISTACHEIA;
 	}
 	else{
-		novo->proximo = aPilha->dados;
-		novo->info = dado;
-		aPilha->dados = novo;
-		aPilha->tamanho = aPilha->tamanho + 1;
-		return 1;
+		aux = aPilha->dados;
+		while(aux->proximo != NULL) {
+			aux = aux->proximo;
+		}
+		aux->proximo = &e;
+		e->info = &dado;
+		aPilha->tamanho = aPilha->tamanho + 1;		
+		return 0;
 	}
 }
 

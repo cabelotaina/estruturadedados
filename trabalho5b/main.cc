@@ -23,6 +23,8 @@ parei aqui
 funcao adiciona ta adicionando no lugar errado, instanciando dentro da funcao, e nao fora
 
 for(i=0;i<n;i++) {
+	TipoInfo t = new TipoInfo();
+	ElementoPilha e = new ElementoPilha();
 	a->adiciona(a, );
 }
 
