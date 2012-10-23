@@ -62,9 +62,10 @@ int Pilha::topo(Pilha *aPilha){
 	}
 
 	ElementoPilha *auxiliar = aPilha->dados;
-	return auxiliar->proximo->info->disco;
-
-
+	while(auxiliar->proximo != NULL) {
+		auxiliar = auxiliar->proximo;
+	}
+	return auxiliar->info->disco;
 }
 
 void Pilha::destroiPilha(Pilha *aPilha){

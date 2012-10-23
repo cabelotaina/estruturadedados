@@ -1,5 +1,5 @@
-#ifndef _TIPO_INFO_
-#define _TIPO_INFO_
+#ifndef _TIPOINFO_H
+#define _TIPOINFO_H
 
 #include <string>
 using namespace std;
