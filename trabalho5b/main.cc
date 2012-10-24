@@ -1,5 +1,6 @@
-#include "pilha.h"
 #include "tipoinfo.h"
+#include "elementopilha.h"
+#include "pilha.h"
 #include <iostream>
 
 using namespace std;
@@ -14,22 +15,15 @@ a = a->criaPilha();
 b = b->criaPilha();
 c = c->criaPilha();
 
-cout << "Escreva a quantidade de peças" <<endl;
+cout << "Escreva a quantidade de pecas" <<endl;
 cin >> n;
-a->tamanho=n;
---
-parei aqui
-
-funcao adiciona ta adicionando no lugar errado, instanciando dentro da funcao, e nao fora
-
 for(i=0;i<n;i++) {
-	TipoInfo t = new TipoInfo();
-	ElementoPilha e = new ElementoPilha();
-	a->adiciona(a, );
+	TipoInfo *dado = new TipoInfo();
+	ElementoPilha *e = new ElementoPilha();
+	dado->disco = i+1;
+	a->adiciona(a, e, dado);
 }
-
---
-if (n%2==0){
+/*if (n%2==0){
 	while(c->tamanho!=n){
 		if(a->topo(a) > b->topo(a))
 			b->adiciona(b,a->retira(a));
@@ -62,5 +56,5 @@ else{
 
 		}
 
-	}
+	}*/
 }

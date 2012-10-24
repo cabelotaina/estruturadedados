@@ -5,9 +5,6 @@
 #include "tipoinfo.h"
 #include "elementopilha.h"
 
-#define ERROLISTAVAZIA -1
-#define ERROPOSICAO -2
-#define ERROLISTACHEIA -3
 class Pilha{
 
 public:
@@ -17,7 +14,7 @@ public:
 
 Pilha();
 ~Pilha();
-int adiciona(Pilha *aPilha, TipoInfo *dado);
+int adiciona(Pilha *aPilha, ElementoPilha *e, TipoInfo *dado);
 TipoInfo* retira(Pilha *aPilha); 
 Pilha* criaPilha(); 
 void destroiPilha(Pilha *aPilha);
