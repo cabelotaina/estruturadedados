@@ -1,7 +1,7 @@
 // Neste arquivo esta a divisao do trabalho para Maurilio, Fristram e Lauro
 
-#ifndef _FILA_ENCADEADA_
-#define _FILA_ENCADEADA_
+#ifndef FILA_H
+#define FILA_H
 #include "tipoinfo.h"
 #include "elementofila.h"
 

@@ -1,5 +1,5 @@
-#ifndef _CIDADE_
-#define _CIDADE_
+#ifndef CIDADE_H
+#define CIDADE_H
 
 #include <string>
 using namespace std;

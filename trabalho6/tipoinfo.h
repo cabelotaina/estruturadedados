@@ -1,5 +1,6 @@
-#ifndef _TIPO_INFO_
-#define _TIPO_INFO_
+#ifndef TIPOINFO_H
+#define TIPOINFO_H
+
 #include <iostream>
 #include <ctime>
 #include <string>

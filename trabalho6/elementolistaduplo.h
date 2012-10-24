@@ -1,5 +1,5 @@
-#ifndef _ELEMENTO_LISTA_
-#define _ELEMENTO_LISTA_
+#ifndef ELEMENTOLISTADUPLO_H
+#define ELEMENTOLISTADUPLO_H
 #include "cidade.h"
 
 class ElementoListaDuplo{
