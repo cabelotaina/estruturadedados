@@ -1,0 +1,18 @@
+wireframe - contem nomes de classes que o maurilio inicialmente imaginou que seriam usados, dentro dos arquivos não código, apenas a descrição de antes de fazermos o arquivo de requisitos;
+
+caixa - contem uma fila encadeada com suas partes 
+	o caixa é a propria fila, e ele possui os seguintes campos:
+	        int numero_de_clientes;
+        	string nome;
+	        enum tipo {EFICIENTE, MEDIO, RUIN};
+	        int numero_de_clientes_atentidos;
+	        int tempo_medio_de_espera;
+        	int faturamento_total;
+	        int faturamento_por_cliente;
+	cliente é o tipo info, (note que o cliente não esta implementado);
+	
+super - copia uma lista duplamente encadeada encadeada;
+
+	Fiz a relação da lista duplamente encadeada (super) com a fila (caixa);
+	Orientei a objetos a classe lista duplamente encadeada;
+

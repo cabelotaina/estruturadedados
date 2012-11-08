@@ -9,6 +9,11 @@
 #define ERROPOSICAO -2
 #define ERROFILACHEIA -3
 #define MAXCLIENTES 10;
+
+#include <iostream>
+#include <string>
+using namespace std;
+
 class Fila{
 
 private:
@@ -34,5 +39,7 @@ public:
 	TipoInfo* retira(); 
 	bool filaVazia(); 
 	void destroiFila();
+	string obterNome();
+	void inserirNome(string nome);
 };
 #endif

@@ -59,5 +59,12 @@ void Fila::destroiFila(){
 	}
 }
 
+void Fila::inserirNome(string nome){
+	this->nome = nome;
+}
+string Fila::obterNome(){
+	return nome;
+}
+
 
 Fila::~Fila(){}

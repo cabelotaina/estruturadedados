@@ -1,0 +1,13 @@
+Local e o que fazer:
+
+
+	tipoinfo.h na pasta caixa representa o cliente, inserir seus campos;
+
+	pasta caixa, ver no documento de requisitos se há a necessidade 
+	de inserir código para o cliente, ou seja um arquivo tipoinfo.cc 
+
+	listaduplo.cc na pasta super, fazer teste de funcionamento ou passar o ddd;
+	pasta principal(raiz), inserir main;
+		colocar sistema de timer;
+
++Insiram mais coisas, não podemos esquecer nada!
