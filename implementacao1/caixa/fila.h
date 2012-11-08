@@ -17,8 +17,9 @@ private:
 	// No documento de requisitos esta que necesitamos apenas o endereço do primeiro cliente da fila, neste caso o final seria desnecessario?
 	ElementoFila *fim;
 	int numero_de_clientes;
+//Tem um identificador (Rosilda, Dona_Beia, etc), encontrei isso em http://moodle.ufsc.br/mod/page/view.php?id=289569 , neste caso o professor trata o identificador como nome por isso retirei id;
 	string nome;
-	int id;
+	//int id;
 	enum tipo {EFICIENTE, MEDIO, RUIN};
 	int numero_de_clientes_atentidos;
 	int tempo_medio_de_espera;
@@ -32,7 +33,6 @@ public:
 	int adiciona(TipoInfo *dado);
 	TipoInfo* retira(); 
 	bool filaVazia(); 
-//	Fila* criaFila(); 
 	void destroiFila();
 };
 #endif

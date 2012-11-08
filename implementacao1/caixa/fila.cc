@@ -5,20 +5,6 @@ Fila::Fila(){
 	
 }
 
-
-/*Fila* Fila::crithis(){
-
-	Fila *this;
-	this = new Fila;
-	if (this != NULL) {
-		this->numero_de_clientes = 0;
-		this->inicio = NULL;
-		this->fim = NULL;
-	}
-	return this;
-}
-*/
-
 bool  Fila::filaVazia(){
 	return this->numero_de_clientes==0;
 }
