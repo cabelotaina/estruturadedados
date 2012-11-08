@@ -3,16 +3,19 @@
 #include <iostream>
 #include <ctime>
 #include <string>
+#include <cstdlib>
+#define MAXPRODUTOS
 using namespace std;
 
 class TipoInfo{
 public:
-	string nome;
-	int telefone;
-	time_t data;
-	string computador;
-	int valor;
+	TipoInfo();
+	~TipoInfo();
+	enum  tipo {FILAMENOR, FILAMENORNUMERODEPRODUTOS};
+	enum forma_pagamento {CHEQUE,DINHEIRO};
+	int total_compra;	
 
+	void carrinho();
 
 };
 #endif

@@ -7,7 +7,10 @@ Local e o que fazer:
 	de inserir código para o cliente, ou seja um arquivo tipoinfo.cc 
 
 	listaduplo.cc na pasta super, fazer teste de funcionamento ou passar o ddd;
-	pasta principal(raiz), inserir main;
-		colocar sistema de timer;
+	pasta principal(raiz), arquivo main 
+		testar assim que estiver testado os outros componentes;
+		colocar sistema de timer no main;
+
+	
 
 +Insiram mais coisas, não podemos esquecer nada!

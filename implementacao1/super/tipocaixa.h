@@ -7,8 +7,15 @@ using namespace std;
 class TipoCaixa{
 private:
 
-	Fila *caixa;	
+	Fila *fila;	
 
+	string nome;
+        enum tipo {EFICIENTE, MEDIO, RUIN};
+
+        int numero_de_clientes_atendidos;
+        int tempo_medio_de_espera;
+        int faturamento_total;
+        int faturamento_por_cliente;
 public:
 
 	TipoCaixa();
@@ -20,6 +27,9 @@ public:
 	bool igual(TipoCaixa *dado);
 	
 
-
+	string obterNome();
+        void inserirNome(string nome);
+	tipo obterTipo();
+	void inserirTipo(enum tipo);
 };
 #endif
