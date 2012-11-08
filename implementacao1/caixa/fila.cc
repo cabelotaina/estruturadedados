@@ -25,7 +25,7 @@ bool  Fila::filaVazia(Fila *aFila){
 
 int Fila::adiciona(Fila *aFila, TipoInfo *dado){
     	ElementoFila *novo = new ElementoFila;
-	if (novo == NULL) 
+	if (novo == NULL || numero_de_clientes==10) 
                 return ERROFILACHEIA;
     	else{
 		if(filaVazia(aFila))
