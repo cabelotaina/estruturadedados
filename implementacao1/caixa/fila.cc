@@ -6,70 +6,70 @@ Fila::Fila(){
 }
 
 
-Fila* Fila::criaFila(){
+/*Fila* Fila::crithis(){
 
-	Fila *aFila;
-	aFila = new Fila;
-	if (aFila != NULL) {
-		aFila->tamanho = 0;
-		aFila->inicio = NULL;
-		aFila->fim = NULL;
+	Fila *this;
+	this = new Fila;
+	if (this != NULL) {
+		this->numero_de_clientes = 0;
+		this->inicio = NULL;
+		this->fim = NULL;
 	}
-	return aFila;
+	return this;
+}
+*/
+
+bool  Fila::filaVazia(){
+	return this->numero_de_clientes==0;
 }
 
-
-bool  Fila::filaVazia(Fila *aFila){
-	return (aFila->tamanho==0);
-}
-
-int Fila::adiciona(Fila *aFila, TipoInfo *dado){
+int Fila::adiciona(TipoInfo *dado){
     	ElementoFila *novo = new ElementoFila;
 	if (novo == NULL || numero_de_clientes==10) 
                 return ERROFILACHEIA;
     	else{
-		if(filaVazia(aFila))
-			aFila->inicio = novo;
+		if(filaVazia())
+			this->inicio = novo;
 		else
-			aFila->fim->proximo = novo;
+			this->fim->proximo = novo;
         	novo->proximo = NULL;
 		novo->info = dado;
-		aFila->fim = novo;
-		aFila->tamanho = aFila->tamanho+1;
-		return aFila->tamanho;
+		this->fim = novo;
+		this->numero_de_clientes = this->numero_de_clientes+1;
+		return this->numero_de_clientes;
 	}
 }
 
-TipoInfo*  Fila::retira(Fila *aFila){
+TipoInfo*  Fila::retira(){
         ElementoFila *saiu = new ElementoFila();
         TipoInfo *volta = new TipoInfo();
 
-        if (filaVazia(aFila)) {
-                return(NULL);
+        if (filaVazia()) {
+                return NULL;
         }else{
-                saiu = aFila->inicio;
+                saiu = this->inicio;
                 volta = saiu->info;
-                aFila->inicio = saiu->proximo;
-		if(aFila->tamanho == 1)
-			aFila->fim = NULL;
+                this->inicio = saiu->proximo;
+		if(this->numero_de_clientes == 1)
+			this->fim = NULL;
 	}
-        aFila->tamanho = aFila->tamanho - 1;
+        this->numero_de_clientes = this->numero_de_clientes - 1;
         delete saiu;
         return volta;
 }
-void Fila::destroiFila(Fila *aFila){
+void Fila::destroiFila(){
 	
-	if (filaVazia(aFila)) {
-	delete  aFila;
+	if (filaVazia()) {
+	delete  this;
 	}else{
-		ElementoFila *atual = aFila->inicio;
+		ElementoFila *atual = this->inicio;
 		while (atual != NULL){
 			ElementoFila *anterior = atual;
 			atual = atual->proximo;
 			delete anterior->info;
 			delete anterior;
 		}
-		delete  aFila;
+		delete  this;
 	}
 }
 
