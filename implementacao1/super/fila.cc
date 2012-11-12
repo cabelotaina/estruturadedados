@@ -1,12 +1,11 @@
 #include "fila.h"
-//#include "tipoinfo.h"
 
 Fila::Fila(){
 	
 }
 
 bool  Fila::filaVazia(){
-	return this->numero_de_clientes==0;
+	return numero_de_clientes==0;
 }
 
 int Fila::adiciona(TipoInfo *dado){
@@ -15,13 +14,13 @@ int Fila::adiciona(TipoInfo *dado){
                 return ERROFILACHEIA;
     	else{
 		if(filaVazia())
-			this->inicio = novo;
+			inicio = novo;
 		else
-			this->fim->proximo = novo;
+			fim->proximo = novo;
         	novo->proximo = NULL;
 		novo->info = dado;
-		this->fim = novo;
-		this->numero_de_clientes = this->numero_de_clientes+1;
+		fim = novo;
+		numero_de_clientes = numero_de_clientes+1;
 		return this->numero_de_clientes;
 	}
 }
@@ -35,9 +34,9 @@ TipoInfo*  Fila::retira(){
         }else{
                 saiu = this->inicio;
                 volta = saiu->info;
-                this->inicio = saiu->proximo;
+                inicio = saiu->proximo;
 		if(this->numero_de_clientes == 1)
-			this->fim = NULL;
+			fim = NULL;
 	}
         this->numero_de_clientes = this->numero_de_clientes - 1;
         delete saiu;

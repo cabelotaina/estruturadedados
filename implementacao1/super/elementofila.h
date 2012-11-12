@@ -1,5 +1,5 @@
-#ifndef _ELEMENTO_LISTA_
-#define _ELEMENTO_LISTA_
+#ifndef _ELEMENTOFILA_H
+#define _ELEMENTOFILA_H
 #include "tipoinfo.h"
 
 class ElementoFila{

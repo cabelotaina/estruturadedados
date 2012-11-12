@@ -1,5 +1,5 @@
-#ifndef _TIPO_CAIXA_
-#define _TIPO_CAIXA_
+#ifndef _TIPOCAIXA_H
+#define _TIPOCAIXA_H
 
 #include <string>
 #include "fila.h"
@@ -10,7 +10,7 @@ public:
 	Fila *fila;	
 
 	string nome;
-       // enum tipo {EFICIENTE, MEDIO, RUIN};
+        enum tipo {EFICIENTE, MEDIO, RUIN};
 
         int numero_de_clientes_atendidos;
         int tempo_medio_de_espera;
@@ -29,7 +29,7 @@ public:
 
 	string obterNome();
         void inserirNome(string nome);
-	//tipo obterTipo();
-	//void inserirTipo(enum tipo);
+	/*enum obterTipo();
+	void inserirTipo(enum tipo);*/
 };
 #endif

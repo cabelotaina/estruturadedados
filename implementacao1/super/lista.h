@@ -3,6 +3,8 @@
 #include "elementolista.h"
 #include "tipocaixa.h"
 
+//comando para testar se esta compilando:
+// g++ lista.cc tipocaixa.cc fila.cc -I .
 
 //podemos passar a usar o exception como esta no exemplo do mateus
 

@@ -18,11 +18,12 @@ string TipoCaixa::obterNome(){
         return nome;
 }
 
-/*void TipoCaixa::inserirTipo(enum tipo){
+/*
+void TipoCaixa::inserirTipo(string tipo){
 	this->tipo = tipo;
 }
 
-tipo* TipoCaixa::obterTipo(){
+enum TipoCaixa::obterTipo(){
 	return tipo;
 }*/
 
