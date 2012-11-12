@@ -2,21 +2,21 @@
 #define _TIPO_CAIXA_
 
 #include <string>
-#include "../caixa/fila.h"
+#include "fila.h"
 using namespace std;
 class TipoCaixa{
-private:
+public:
 
 	Fila *fila;	
 
 	string nome;
-        enum tipo {EFICIENTE, MEDIO, RUIN};
+       // enum tipo {EFICIENTE, MEDIO, RUIN};
 
         int numero_de_clientes_atendidos;
         int tempo_medio_de_espera;
         int faturamento_total;
         int faturamento_por_cliente;
-public:
+
 
 	TipoCaixa();
 	~TipoCaixa();
@@ -29,7 +29,7 @@ public:
 
 	string obterNome();
         void inserirNome(string nome);
-	tipo obterTipo();
-	void inserirTipo(enum tipo);
+	//tipo obterTipo();
+	//void inserirTipo(enum tipo);
 };
 #endif
