@@ -10,8 +10,8 @@ public:
 	Fila *fila;	
 
 	string nome;
-        enum tipo {EFICIENTE, MEDIO, RUIN};
-
+        enum perfil {EFICIENTE=2, MEDIO=1, RUIM=0};
+	perfil atual;
         int numero_de_clientes_atendidos;
         int tempo_medio_de_espera;
         int faturamento_total;

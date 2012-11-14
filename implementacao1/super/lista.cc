@@ -21,7 +21,7 @@ int Lista::adiciona(TipoCaixa *info){
 	}
 }
 
-/*
+
 // não possui adiciona/retira no inicio
 
 int Lista::adicionaNaPosicao(TipoCaixa *info, int posicao){
@@ -151,5 +151,5 @@ bool Lista::contem(ElementoLista *info){
 
 
 }
-*/
+
 Lista::~Lista(){}

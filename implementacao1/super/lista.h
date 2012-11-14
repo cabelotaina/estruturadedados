@@ -23,7 +23,7 @@ public:
 	~Lista();
 	int adiciona(TipoCaixa *info);
 	bool listaVazia(); 
-/*	int adicionaNaPosicao(TipoInfo *info, int posicao); 
+	int adicionaNaPosicao(TipoInfo *info, int posicao); 
 	int adicionaEmOrdem(TipoInfo *info); 
 	int retira(); 
 	int retiraDaPosicao(int posicao); 
@@ -31,6 +31,6 @@ public:
 	int posicao(ElementoLista *info);
 	bool contem(ElementoLista *info);
 	void destroiLista();
-*/
+
 };
 #endif
