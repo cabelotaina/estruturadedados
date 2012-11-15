@@ -18,17 +18,14 @@ public:
 	ElementoLista *dados;
 	int tamanho;
 
-
 	Lista();
 	~Lista();
 	int adiciona(TipoCaixa *info);
 	bool listaVazia(); 
-	int adicionaNaPosicao(TipoInfo *info, int posicao); 
-	int adicionaEmOrdem(TipoInfo *info); 
 	int retira(); 
-	int retiraDaPosicao(int posicao); 
+	 
 	int retiraEspecifico(ElementoLista *info);
-	int posicao(ElementoLista *info);
+	
 	bool contem(ElementoLista *info);
 	void destroiLista();
 

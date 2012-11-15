@@ -13,8 +13,8 @@ private:
 	Fila *fila;	
 
 	string nome;
-        enum perfil {EFICIENTE=2, MEDIO=1, RUIM=0};
-	perfil tipo;
+       
+	
 	// vai incrementado enquanto o caixa esta em funcionamento
         int clientes_atendidos;
 	// somatorio do tempo de espera de cada cliente dividido pelo numero de clientes atendidos pelo caixa
@@ -25,7 +25,8 @@ private:
 public:
 	TipoCaixa();
 	~TipoCaixa();
-	
+	 enum perfil {EFICIENTE=2, MEDIO=1, RUIM=0};
+	perfil tipo;
 	//podemos usar uma string já que o comparador é pelo nome;
       	bool maior(TipoCaixa *dado);
 	bool menor(TipoCaixa *dado);
