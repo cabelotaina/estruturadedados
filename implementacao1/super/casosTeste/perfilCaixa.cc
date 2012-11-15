@@ -6,7 +6,7 @@ int main(){
 
 
 TipoCaixa *caixa = new TipoCaixa;
-caixa->atual = TipoCaixa::EFICIENTE;
-cout << caixa->atual<<endl;
+caixa->tipo = TipoCaixa::EFICIENTE;
+cout << caixa->tipo<<endl;
 
 }

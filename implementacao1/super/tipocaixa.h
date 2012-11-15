@@ -2,22 +2,27 @@
 #define _TIPOCAIXA_H
 
 #include <string>
+#include "tipoinfo.h"
 #include "fila.h"
+
 using namespace std;
 class TipoCaixa{
-public:
+
+private:
 
 	Fila *fila;	
 
 	string nome;
         enum perfil {EFICIENTE=2, MEDIO=1, RUIM=0};
-	perfil atual;
-        int numero_de_clientes_atendidos;
+	perfil tipo;
+	// vai incrementado enquanto o caixa esta em funcionamento
+        int clientes_atendidos;
+	// somatorio do tempo de espera de cada cliente dividido pelo numero de clientes atendidos pelo caixa
         int tempo_medio_de_espera;
         int faturamento_total;
         int faturamento_por_cliente;
 
-
+public:
 	TipoCaixa();
 	~TipoCaixa();
 	
@@ -29,7 +34,11 @@ public:
 
 	string obterNome();
         void inserirNome(string nome);
+	void removerCliente();
+	int tamanhoFila();
 	/*enum obterTipo();
 	void inserirTipo(enum tipo);*/
+
+	bool adicionaCliente(TipoInfo *cliente);
 };
 #endif

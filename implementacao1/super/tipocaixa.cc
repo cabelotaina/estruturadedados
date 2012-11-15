@@ -1,6 +1,9 @@
 #include "tipocaixa.h"
 
-TipoCaixa::TipoCaixa(){}
+TipoCaixa::TipoCaixa(){
+	fila = new Fila;
+
+}
 
 bool TipoCaixa::igual(TipoCaixa *dado){
 	return obterNome() == dado->obterNome();
@@ -18,7 +21,25 @@ string TipoCaixa::obterNome(){
         return nome;
 }
 
-/*
+bool TipoCaixa::adicionaCliente(TipoInfo *cliente){
+	if (tamanhoFila() == 10){ 
+		return false;
+	}
+	else{	
+		fila->adiciona(cliente);
+		clientes_atendidos++;
+		return true;	
+	}
+}
+
+void TipoCaixa::removerCliente(){
+	fila->retira();
+}
+
+int TipoCaixa::tamanhoFila(){
+	return fila->numero_de_clientes;
+
+}/*
 void TipoCaixa::inserirTipo(string tipo){
 	this->tipo = tipo;
 }

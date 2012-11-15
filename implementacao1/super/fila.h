@@ -16,13 +16,12 @@
 
 class Fila{
 
-public:
 
+private:// No documento de requisitos esta que necesitamos apenas o endereço do primeiro cliente da fila,
+	// neste caso o final seria desnecessario?
 	ElementoFila *inicio, *fim;
-	// No documento de requisitos esta que necesitamos apenas o endereço do primeiro cliente da fila, neste caso o final seria desnecessario?
+public:	
 	int numero_de_clientes;
-
-
 
 	Fila();
 	~Fila();
