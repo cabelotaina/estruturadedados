@@ -3,31 +3,35 @@
 #include "tipoinfo.h"
 //rand e srand
 #include <stdlib.h>
+#include <stdio.h>
 //cin e cout
 #include <iostream>
 using namespace std;
+#include <time.h> //necessária para usar o time(NULL)
 
 //apenas o inicio da simulaçao
 
+bool randomBool() {
+  return rand() % 2 == 1;
+}
 
 
 void simulacao(Lista *super, int tempo_medio, int tempo_operacao){
-
+	cout<<super->tamanho<<endl;
 	tempo_operacao = tempo_operacao*60*60;
+	
 	srand(time(NULL));
-	int media_randomica = int((double(rand())/RAND_MAX)*tempo_medio) + tempo_medio/2;
 	int cadencia = 0;
 	int relogio = 0;
-	while(relogio==tempo_operacao){
-
-		
+	while(relogio!=tempo_operacao){
+	int media_randomica = 3 ;//int((double(rand())/RAND_MAX)*tempo_medio) + tempo_medio/2;
+		srand(time(NULL));
 		//mercado funciona aqui
-
 		//codigo que insere o cliente
 		if(cadencia==media_randomica){
 			// gerar modo de pagamento e perfil do cliente
-				bool cheque = bool(0 == ( rand() % 2 ));
-				bool perfil = bool(0 == ( rand() % 2 ));
+				bool cheque =  randomBool();
+				bool perfil =  randomBool();
 			//chegou cliente novo
 			TipoInfo *cliente = new TipoInfo(perfil,cheque);
 			//inserindo dados do cliente
@@ -35,9 +39,9 @@ void simulacao(Lista *super, int tempo_medio, int tempo_operacao){
 			cadencia=0;		
 		}
 		//visitando cada caixa
-
+		if(super->temCliente()){
 		super->atenderClientes(relogio);
-		
+		}
 		relogio++;
 		cadencia++;
 	}
@@ -55,10 +59,10 @@ void simulacao(Lista *super, int tempo_medio, int tempo_operacao){
   	   	       	//caixa->tipo = TipoCaixa::EFICIENTE;
 			break;
 	   	       	case 'c':
-           	       	//caixa->tipo = TipoCaixa::MEDIO;
+           	       	super->faturameto();
 			break;
  	 	       	case 'd':
-  	               	//caixa->tipo = TipoCaixa::RUIM;
+  	              	cout<<super->custosOperacao()<<endl;
 			break;
  	   	}
 	}
@@ -75,6 +79,8 @@ int main(){
 	TipoCaixa *caixa;
 	Lista *super = new Lista;
 	for( int i = 0; i < numero_de_caixas; i++){
+		srand(time(NULL));
+		cout<<randomBool()<<endl;
 		cout << "Insira a letra correspondente a avaliação de cada caixa e (eficiente), m (médio) r (ruim):" << endl;
 		char operacao;
 		cin >> operacao;

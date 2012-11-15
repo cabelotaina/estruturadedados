@@ -39,6 +39,9 @@ bool TipoCaixa::adicionaCliente(TipoInfo *cliente){
 		return true;	
 	}
 }
+int TipoCaixa::faturamento(){
+	return fila->faturamento();
+}
 void TipoCaixa::atualizarTempo(int total){
 	tempoTotal = tempoTotal+total;
 }

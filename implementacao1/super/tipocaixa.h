@@ -18,10 +18,7 @@ private:
 	
 	// vai incrementado enquanto o caixa esta em funcionamento
         int clientes_atendidos;
-	// somatorio do tempo de espera de cada cliente dividido pelo numero de clientes atendidos pelo caixa
-        int tempo_medio_de_espera;
-        int faturamento_total;
-        int faturamento_por_cliente;
+	
 
 public:
 	TipoCaixa();
@@ -46,5 +43,6 @@ public:
 	void atualizarTempo(int total);
 	int totalProdutos();
 	void proximoCliente(int relogio);
+	int faturamento();
 };
 #endif

@@ -23,11 +23,14 @@ int Fila::adiciona(TipoInfo *dado){
 		return this->numero_de_clientes;
 	}
 }
-void Fila::proximoCliente(int relogio){
+int Fila::proximoCliente(int relogio){
 	if (relogio == inicio->info->tempoSaida()){
 		retira();
+		inicio->faturamento_total += inicio->info->total_compra;
 	}
-
+}
+int Fila::faturamento(){
+	return inicio->faturamento_total;
 }
 int Fila::totalProdutos(){
 	ElementoFila *cliente = inicio;

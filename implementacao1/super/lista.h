@@ -33,6 +33,9 @@ public:
 	TipoCaixa* menorFila();
 	TipoCaixa* menosProdutos();
 	void atenderClientes(int relogio);
+	int custosOperacao();
+	void faturameto();
+	bool temCliente();
 
 };
 #endif

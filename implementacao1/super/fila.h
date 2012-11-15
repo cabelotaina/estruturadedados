@@ -22,7 +22,7 @@ private:// No documento de requisitos esta que necesitamos apenas o endereço do
 	ElementoFila *inicio, *fim;
 public:	
 	int numero_de_clientes;
-
+	
 	Fila();
 	~Fila();
 	int adiciona(TipoInfo *dado);
@@ -30,6 +30,7 @@ public:
 	bool filaVazia(); 
 	void destroiFila();
 	int totalProdutos();
-	void proximoCliente(int relogio);
+	int proximoCliente(int relogio);
+	int faturamento();
 };
 #endif
