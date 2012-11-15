@@ -1,10 +1,46 @@
 #include "lista.h"
 #include "tipocaixa.h"
+#include "tipoinfo.h"
+//rand e srand
+#include <stdlib.h>
 //cin e cout
 #include <iostream>
 using namespace std;
 
 //apenas o inicio da simulaçao
+
+
+
+void simulacao(Lista *super, int tempo_medio, int tempo_operacao){
+
+	tempo_operacao = 3; //tempo_operacao*60*60;
+	srand(time(NULL));
+	int media_randomica = int((double(rand())/RAND_MAX)*tempo_medio) + tempo_medio/2;
+	int cadencia = 0;
+	while(tempo_operacao!=0){
+
+
+		//mercado funciona aqui
+		if(cadencia==media_randomica){
+
+
+			// gerar modo de pagamento e perfil do cliente
+				bool cheque = bool(0 == ( rand() % 2 ));
+				bool perfil = bool(0 == ( rand() % 2 ));
+			//chegou cliente novo
+			TipoInfo *cliente = new TipoInfo(perfil,cheque);
+			//inserindo dados do cliente
+			super->adicionaCliente(cliente);
+			cadencia=0;			
+		}
+
+		tempo_operacao--;
+		cadencia++;
+	}
+	cout << "Termino da simulaçao"<<endl;
+
+}
+
 
 int main(){
 	cout << "Insira o numero de caixas do supermercado:" << endl;
@@ -29,7 +65,7 @@ int main(){
   	                caixa->tipo = TipoCaixa::RUIM;
 			break;
  	   }
-	super->adiciona(caixa);
+	super->adicionaCaixa(caixa);
 	}
 	cout << "Insira o tempo médio de chegada, em segundos, de novos clientes no supermercado:" << endl;
 	int tempo_medio;
@@ -39,7 +75,7 @@ int main(){
 	cin >> tempo_operacao;
 	cout << "Espere enquanto o sistema computa a sua simulação, ou aperte c para cancelar... " << endl;
 
-	cout << super->tamanho<<endl;
+	//cout << super->tamanho<<endl;
 
-	//simulacao();
+	simulacao(super, tempo_medio, tempo_operacao);
 }

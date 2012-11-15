@@ -1,17 +1,23 @@
 #include <stdlib.h>
 #include "tipoinfo.h"
+#include <iostream>
 
-TipoInfo::TipoInfo(){}
-void carrinho(){
+using namespace std;
 
-	//adicionar os produtos e os preços a cada produto;
-	int total_compra;
+TipoInfo::TipoInfo(bool tipo, bool cheque){
+	this->tipo = tipo;
+	this->cheque = cheque;
+	carrinho();
+
+}
+void TipoInfo::carrinho(){
+	//gerando semente aleatoria
+	srand(time(NULL));
+	//adicionar os produtos e os preços a cada produtos
 	int total_itens = int(rand() % 100 + 2);
 	for (int i = 0; i < total_itens;i++){
 		int valor = int(rand() % 90 + 1);
 		total_compra += valor;
 	}
-		
-
 }
 TipoInfo::~TipoInfo(){}

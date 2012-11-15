@@ -20,12 +20,12 @@ public:
 
 	Lista();
 	~Lista();
-	int adiciona(TipoCaixa *info);
+	int adicionaCaixa(TipoCaixa *info);
 	bool listaVazia(); 
 	int retira(); 
 	 
 	int retiraEspecifico(ElementoLista *info);
-	
+	void adicionaCliente(TipoInfo *cliente);
 	bool contem(ElementoLista *info);
 	void destroiLista();
 

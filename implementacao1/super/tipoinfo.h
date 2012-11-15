@@ -5,10 +5,9 @@ using namespace std;
 
 class TipoInfo{
 public:
-	TipoInfo();
+	TipoInfo(bool tipo, bool cheque);
+	//TipoInfo();
 	~TipoInfo();
-
-
 
 	// false - para menor fila;
 	// true - para fila com o menor numero de produtos; 
@@ -17,8 +16,8 @@ public:
 	// false - pagar em dinheiro;
 	// true - pagar com cheque;
 	bool cheque;
-	int total_compra;	
 
+	int total_compra;	
 	void carrinho();
 
 };

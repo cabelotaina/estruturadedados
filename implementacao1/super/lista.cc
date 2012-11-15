@@ -8,7 +8,7 @@ bool  Lista::listaVazia(){
 	return (tamanho == 0);
 }
 
-int Lista::adiciona(TipoCaixa *info){
+int Lista::adicionaCaixa(TipoCaixa *info){
     	ElementoLista *novo = new ElementoLista;
 	if (novo == NULL) {
                 return ERROLISTACHEIA;
@@ -21,15 +21,6 @@ int Lista::adiciona(TipoCaixa *info){
 		return 1;
 	}
 }
-
-
-// não possui adiciona/retira no inicio
-
-
-
-
-
-
 
 
 
@@ -48,7 +39,18 @@ void Lista::destroiLista(){
 		delete  this;
 	}
 }
-
+void Lista::adicionaCliente(TipoInfo *cliente){
+	//cliente busca um caixa
+	
+	//cliente entra na fila ou vai embora
+		//entra na fila
+		
+		// computamos tudo do cliente
+		
+		// vao enbora e computamos a perda
+		
+	//ver se tem mais coisas
+}
 int Lista::retira(){
 
 	ElementoLista *saiu = new ElementoLista();
@@ -81,5 +83,8 @@ bool Lista::contem(ElementoLista *info){
 
 
 }
+
+
+
 
 Lista::~Lista(){}

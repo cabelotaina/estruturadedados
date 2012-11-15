@@ -1,5 +1,4 @@
 #include "fila.h"
-
 Fila::Fila(){
 	
 }
@@ -27,7 +26,7 @@ int Fila::adiciona(TipoInfo *dado){
 
 TipoInfo*  Fila::retira(){
         ElementoFila *saiu = new ElementoFila();
-        TipoInfo *volta = new TipoInfo();
+        TipoInfo *volta = new TipoInfo(true,true);
 
         if (filaVazia()) {
                 return NULL;
@@ -38,7 +37,7 @@ TipoInfo*  Fila::retira(){
 		if(this->numero_de_clientes == 1)
 			fim = NULL;
 	}
-        this->numero_de_clientes = this->numero_de_clientes - 1;
+        numero_de_clientes = numero_de_clientes - 1;
         delete saiu;
         return volta;
 }
