@@ -23,7 +23,20 @@ int Fila::adiciona(TipoInfo *dado){
 		return this->numero_de_clientes;
 	}
 }
+void Fila::proximoCliente(int relogio){
+	if (relogio == inicio->info->tempoSaida()){
+		retira();
+	}
 
+}
+int Fila::totalProdutos(){
+	ElementoFila *cliente = inicio;
+	int total;
+	for(int i=0;i< numero_de_clientes;i++){
+		total =  total+cliente->info->total_itens;
+	}
+	return total;
+}
 TipoInfo*  Fila::retira(){
         ElementoFila *saiu = new ElementoFila();
         TipoInfo *volta = new TipoInfo(true,true);

@@ -29,5 +29,7 @@ public:
 	TipoInfo* retira(); 
 	bool filaVazia(); 
 	void destroiFila();
+	int totalProdutos();
+	void proximoCliente(int relogio);
 };
 #endif

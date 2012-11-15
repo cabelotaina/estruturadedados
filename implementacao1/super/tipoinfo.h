@@ -16,9 +16,13 @@ public:
 	// false - pagar em dinheiro;
 	// true - pagar com cheque;
 	bool cheque;
+	int saida;
 
-	int total_compra;	
+	int total_compra;
+	int total_itens;	
 	void carrinho();
+	void tempo(int saida);
+	int tempoSaida();
 
 };
 #endif

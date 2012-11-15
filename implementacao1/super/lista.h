@@ -17,7 +17,9 @@ class Lista{
 public:
 	ElementoLista *dados;
 	int tamanho;
-
+	int perda;
+	int maxclientes;
+	int totalClientes;
 	Lista();
 	~Lista();
 	int adicionaCaixa(TipoCaixa *info);
@@ -25,9 +27,12 @@ public:
 	int retira(); 
 	 
 	int retiraEspecifico(ElementoLista *info);
-	void adicionaCliente(TipoInfo *cliente);
+	void adicionaCliente(TipoInfo *cliente,int relogio);
 	bool contem(ElementoLista *info);
 	void destroiLista();
+	TipoCaixa* menorFila();
+	TipoCaixa* menosProdutos();
+	void atenderClientes(int relogio);
 
 };
 #endif

@@ -14,10 +14,16 @@ void TipoInfo::carrinho(){
 	//gerando semente aleatoria
 	srand(time(NULL));
 	//adicionar os produtos e os preços a cada produtos
-	int total_itens = int(rand() % 100 + 2);
+	total_itens = int(rand() % 100 + 2);
 	for (int i = 0; i < total_itens;i++){
 		int valor = int(rand() % 90 + 1);
 		total_compra += valor;
 	}
+}
+void TipoInfo::tempo(int saida){
+	this->saida=saida;
+}
+int TipoInfo::tempoSaida(){
+	return saida;
 }
 TipoInfo::~TipoInfo(){}

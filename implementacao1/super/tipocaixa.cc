@@ -20,7 +20,15 @@ void TipoCaixa::inserirNome(string nome){
 string TipoCaixa::obterNome(){
         return nome;
 }
-
+int TipoCaixa::tempo(){
+	return tempoTotal;
+}
+int TipoCaixa::totalProdutos(){
+	return fila->totalProdutos();
+}
+void TipoCaixa::proximoCliente(int relogio){
+	fila->proximoCliente(relogio);
+}
 bool TipoCaixa::adicionaCliente(TipoInfo *cliente){
 	if (tamanhoFila() == 10){ 
 		return false;
@@ -31,7 +39,9 @@ bool TipoCaixa::adicionaCliente(TipoInfo *cliente){
 		return true;	
 	}
 }
-
+void TipoCaixa::atualizarTempo(int total){
+	tempoTotal = tempoTotal+total;
+}
 void TipoCaixa::removerCliente(){
 	fila->retira();
 }

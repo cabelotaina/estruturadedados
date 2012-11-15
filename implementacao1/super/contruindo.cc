@@ -13,32 +13,57 @@ using namespace std;
 
 void simulacao(Lista *super, int tempo_medio, int tempo_operacao){
 
-	tempo_operacao = 3; //tempo_operacao*60*60;
+	tempo_operacao = tempo_operacao*60*60;
 	srand(time(NULL));
 	int media_randomica = int((double(rand())/RAND_MAX)*tempo_medio) + tempo_medio/2;
 	int cadencia = 0;
-	while(tempo_operacao!=0){
+	int relogio = 0;
+	while(relogio==tempo_operacao){
 
-
+		
 		//mercado funciona aqui
+
+		//codigo que insere o cliente
 		if(cadencia==media_randomica){
-
-
 			// gerar modo de pagamento e perfil do cliente
 				bool cheque = bool(0 == ( rand() % 2 ));
 				bool perfil = bool(0 == ( rand() % 2 ));
 			//chegou cliente novo
 			TipoInfo *cliente = new TipoInfo(perfil,cheque);
 			//inserindo dados do cliente
-			super->adicionaCliente(cliente);
-			cadencia=0;			
+			super->adicionaCliente(cliente,relogio);
+			cadencia=0;		
 		}
+		//visitando cada caixa
 
-		tempo_operacao--;
+		super->atenderClientes(relogio);
+		
+		relogio++;
 		cadencia++;
 	}
+	char operacao = 'j';
+	while(operacao !='s'){
+		cout<<"Agora você pode ter acesso as informações de estatística da simulação:"<<endl;
+		cout <<"m - para ver o melhor número de caixas para o super mercado de acordo com a frequência de clientes ao seu ponto;"<<endl;
+		cout<<"c - para ver o valor do faturamento por caixa e total do supermercado;"<<endl;
+		cout<<"d - veja os custos de operação do supermercado;"<<endl;
+		cout<<"s - para sair da simulaçao;"<<endl;
+		cin>>operacao;
+		// guspir os resultados pedidos
+		switch (operacao){
+  	    	 	case 'm':
+  	   	       	//caixa->tipo = TipoCaixa::EFICIENTE;
+			break;
+	   	       	case 'c':
+           	       	//caixa->tipo = TipoCaixa::MEDIO;
+			break;
+ 	 	       	case 'd':
+  	               	//caixa->tipo = TipoCaixa::RUIM;
+			break;
+ 	   	}
+	}
 	cout << "Termino da simulaçao"<<endl;
-
+	//super->resultado();
 }
 
 
