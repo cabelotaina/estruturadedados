@@ -1,13 +1,13 @@
 #ifndef _ASSOCIACAO_
 #define _ASSOCIACAO_
 
-//tipo 1 int, 2 float, 3 string 
+
 class Associacao {
 
 public:
-	char *chave;
-	int tipo;
-	void *valor;
+	char *chave; //cep neste caso
+	int tipo;//tipo 1 int, 2 float, 3 string 
+	void *valor; // logradouro neste caso
 	Associacao *prox;
 
 };

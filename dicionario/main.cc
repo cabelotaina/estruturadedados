@@ -1,11 +1,11 @@
 #include <stdio.h>
-#include <string.h>
-
+#include <string>
 #include <iostream>
 #include <fstream>
-#include <string>
+#include <string.h>
 #include <sstream>
-
+#include <stdio.h>
+#include <string.h>
 #include "dicionario.h"
 
 using namespace std;
@@ -13,27 +13,28 @@ using namespace std;
 #define TIPO 3 //string
 
 int main () {
+
+
+  Dicionario *h = new Dicionario;
   string line;
   ifstream myfile ("ceps.lista");
   if (myfile.is_open())
   {
-    while ( myfile.good() )
+    while ( myfile.eof() )
     {
       	getline (myfile,line);
 	
 	string aux = line.substr(line.size()-8,line.size());
-	char * cep;
-
-	  cep = new char [aux.size()+1];
-	  strcpy (cep, aux.c_str());
+	  //char *cep;
+	  //strcpy(cep, aux.c_str());
 	 
 
-	//cout << cep  << endl; //obtem o cep da linha
+	//cout << aux  << endl; //obtem o cep da linha
 	
 	string logradouro = line.substr(0,line.find("|"));
 	//cout << "logradouro" <<  logradouro <<endl;
-
-	adicionar(cep, TIPO, logradouro);
+	//cout<<line.size()<<endl;'
+	h->adicionar((char*)aux.c_str(), TIPO, (void*)logradouro.c_str());
     }
     myfile.close();
   }
